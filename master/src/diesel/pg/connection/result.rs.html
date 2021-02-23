@@ -209,6 +209,12 @@
 <span id="206">206</span>
 <span id="207">207</span>
 <span id="208">208</span>
+<span id="209">209</span>
+<span id="210">210</span>
+<span id="211">211</span>
+<span id="212">212</span>
+<span id="213">213</span>
+<span id="214">214</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">pq_sys</span>;
 
@@ -379,6 +385,11 @@
     <span class="kw">fn</span> <span class="ident">constraint_name</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="ident">str</span><span class="op">&gt;</span> {
         <span class="ident">get_result_field</span>(<span class="self">self</span>.<span class="number">0</span>.<span class="ident">as_ptr</span>(), <span class="ident">ResultField</span>::<span class="ident">ConstraintName</span>)
     }
+
+    <span class="kw">fn</span> <span class="ident">statement_position</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span> {
+        <span class="kw">let</span> <span class="ident">str_pos</span> <span class="op">=</span> <span class="ident">get_result_field</span>(<span class="self">self</span>.<span class="number">0</span>.<span class="ident">as_ptr</span>(), <span class="ident">ResultField</span>::<span class="ident">StatementPosition</span>)<span class="question-mark">?</span>;
+        <span class="ident">str_pos</span>.<span class="ident">parse</span>::<span class="op">&lt;</span><span class="ident">i32</span><span class="op">&gt;</span>().<span class="ident">ok</span>()
+    }
 }
 
 <span class="doccomment">/// Represents valid options to</span>
@@ -394,6 +405,7 @@
     <span class="ident">TableName</span> <span class="op">=</span> <span class="string">&#39;t&#39;</span> <span class="kw">as</span> <span class="ident">i32</span>,
     <span class="ident">ColumnName</span> <span class="op">=</span> <span class="string">&#39;c&#39;</span> <span class="kw">as</span> <span class="ident">i32</span>,
     <span class="ident">ConstraintName</span> <span class="op">=</span> <span class="string">&#39;n&#39;</span> <span class="kw">as</span> <span class="ident">i32</span>,
+    <span class="ident">StatementPosition</span> <span class="op">=</span> <span class="string">&#39;P&#39;</span> <span class="kw">as</span> <span class="ident">i32</span>,
 }
 
 <span class="kw">fn</span> <span class="ident">get_result_field</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="ident">res</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">PGresult</span>, <span class="ident">field</span>: <span class="ident">ResultField</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">str</span><span class="op">&gt;</span> {
