@@ -296,7 +296,7 @@
     <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">env</span>;
 
     <span class="kw">fn</span> <span class="ident">connection</span>() <span class="op">-</span><span class="op">&gt;</span> <span class="ident">MysqlConnection</span> {
-        <span class="kw">let</span> <span class="kw">_</span> <span class="op">=</span> <span class="ident">dotenv</span>::<span class="ident">dotenv</span>();
+        <span class="ident">dotenv</span>::<span class="ident">dotenv</span>().<span class="ident">ok</span>();
         <span class="kw">let</span> <span class="ident">database_url</span> <span class="op">=</span> <span class="ident">env</span>::<span class="ident">var</span>(<span class="string">&quot;MYSQL_UNIT_TEST_DATABASE_URL&quot;</span>)
             .<span class="ident">or_else</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">env</span>::<span class="ident">var</span>(<span class="string">&quot;MYSQL_DATABASE_URL&quot;</span>))
             .<span class="ident">or_else</span>(<span class="op">|</span><span class="kw">_</span><span class="op">|</span> <span class="ident">env</span>::<span class="ident">var</span>(<span class="string">&quot;DATABASE_URL&quot;</span>))
