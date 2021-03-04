@@ -21,16 +21,16 @@ from the name of the corresponding column, you can annotate the field with
 <p>By default, any <code>Option</code> fields on the struct are skipped if their value is
 <code>None</code>. If you would like to assign <code>NULL</code> to the field instead, you can
 annotate your struct with <code>#[changeset_options(treat_none_as_null = &quot;true&quot;)]</code>.</p>
-<h1 id="attributes" class="section-header"><a href="#attributes">Attributes</a></h1><h2 id="optional-type-attributes" class="section-header"><a href="#optional-type-attributes">Optional type attributes</a></h2>
+<h1 id="attributes" class="section-header"><a href="#attributes">Attributes</a></h1><h2 id="optional-container-attributes" class="section-header"><a href="#optional-container-attributes">Optional container attributes</a></h2>
 <ul>
-<li><code>#[table_name = &quot;some_table&quot;]</code>, specifies the table for which the
-current type is a changeset. Requires that <code>some_table</code> is in scope.
-If this attribute is not used, the type name converted to
-<code>snake_case</code> with an added <code>s</code> is used as table name</li>
 <li><code>#[changeset_options(treat_none_as_null = &quot;true&quot;)]</code>, specifies that
 the derive should threat <code>None</code> values as <code>NULL</code>. By default
 <code>Option::&lt;T&gt;::None</code> is just skipped. To insert a <code>NULL</code> using default
 behavior use <code>Option::&lt;Option&lt;T&gt;&gt;::Some(None)</code></li>
+<li><code>#[table_name = &quot;some_table&quot;]</code>, specifies the table for which the
+current type is a changeset. Requires that <code>some_table</code> is in scope.
+If this attribute is not used, the type name converted to
+<code>snake_case</code> with an added <code>s</code> is used as table name</li>
 </ul>
 <h2 id="optional-field-attributes" class="section-header"><a href="#optional-field-attributes">Optional field attributes</a></h2>
 <ul>
