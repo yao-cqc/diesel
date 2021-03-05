@@ -4,6 +4,7 @@ implementors["chrono"] = [{"text":"impl&lt;'a&gt; Iterator for StrftimeItems&lt;
 implementors["form_urlencoded"] = [{"text":"impl&lt;'a&gt; Iterator for Parse&lt;'a&gt;","synthetic":false,"types":[]},{"text":"impl&lt;'a&gt; Iterator for ParseIntoOwned&lt;'a&gt;","synthetic":false,"types":[]},{"text":"impl&lt;'a&gt; Iterator for ByteSerialize&lt;'a&gt;","synthetic":false,"types":[]}];
 implementors["ipnetwork"] = [{"text":"impl Iterator for IpNetworkIterator","synthetic":false,"types":[]}];
 implementors["memchr"] = [{"text":"impl&lt;'a&gt; Iterator for Memchr&lt;'a&gt;","synthetic":false,"types":[]},{"text":"impl&lt;'a&gt; Iterator for Memchr2&lt;'a&gt;","synthetic":false,"types":[]},{"text":"impl&lt;'a&gt; Iterator for Memchr3&lt;'a&gt;","synthetic":false,"types":[]}];
+implementors["num_bigint"] = [{"text":"impl Iterator for U32Digits&lt;'_&gt;","synthetic":false,"types":[]},{"text":"impl Iterator for U64Digits&lt;'_&gt;","synthetic":false,"types":[]}];
 implementors["num_integer"] = [{"text":"impl&lt;T&gt; Iterator for IterBinomial&lt;T&gt; <span class=\"where fmt-newline\">where<br>&nbsp;&nbsp;&nbsp;&nbsp;T: Integer + Clone,&nbsp;</span>","synthetic":false,"types":[]}];
 implementors["percent_encoding"] = [{"text":"impl&lt;'a&gt; Iterator for PercentEncode&lt;'a&gt;","synthetic":false,"types":[]},{"text":"impl&lt;'a&gt; Iterator for PercentDecode&lt;'a&gt;","synthetic":false,"types":[]}];
 implementors["proc_macro2"] = [{"text":"impl Iterator for IntoIter","synthetic":false,"types":[]}];

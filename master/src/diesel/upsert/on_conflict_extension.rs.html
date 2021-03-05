@@ -425,7 +425,7 @@
     <span class="doccomment">/// #     conn.execute(&quot;TRUNCATE TABLE users&quot;).unwrap();</span>
     <span class="doccomment">/// #     #[cfg(feature = &quot;sqlite&quot;)]</span>
     <span class="doccomment">/// #     conn.execute(&quot;DELETE FROM users&quot;).unwrap();</span>
-    <span class="doccomment">/// let user = User { id: 1, name: &quot;Sean&quot;, };</span>
+    <span class="doccomment">/// let user = User { id: 1, name: &quot;Sean&quot; };</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// let inserted_row_count = diesel::insert_into(users)</span>
     <span class="doccomment">///     .values(&amp;user)</span>
@@ -455,7 +455,7 @@
     <span class="doccomment">/// #     #[cfg(feature = &quot;postgres&quot;)]</span>
     <span class="doccomment">/// #     conn.execute(&quot;TRUNCATE TABLE users&quot;).unwrap();</span>
     <span class="doccomment">/// # #[cfg(feature = &quot;postgres&quot;)]</span>
-    <span class="doccomment">/// let user = User { id: 1, name: &quot;Sean&quot;, };</span>
+    <span class="doccomment">/// let user = User { id: 1, name: &quot;Sean&quot; };</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # #[cfg(feature = &quot;postgres&quot;)]</span>
     <span class="doccomment">/// let inserted_row_count = diesel::insert_into(users)</span>
@@ -500,7 +500,7 @@
     <span class="doccomment">/// #     #[cfg(feature = &quot;sqlite&quot;)]</span>
     <span class="doccomment">/// #     conn.execute(&quot;DELETE FROM users&quot;).unwrap();</span>
     <span class="doccomment">/// conn.execute(&quot;CREATE UNIQUE INDEX users_name ON users (name)&quot;).unwrap();</span>
-    <span class="doccomment">/// let user = User { id: 1, name: &quot;Sean&quot;, };</span>
+    <span class="doccomment">/// let user = User { id: 1, name: &quot;Sean&quot; };</span>
     <span class="doccomment">/// let same_name_different_id = User { id: 2, name: &quot;Sean&quot; };</span>
     <span class="doccomment">/// let same_id_different_name = User { id: 1, name: &quot;Pascal&quot; };</span>
     <span class="doccomment">///</span>
