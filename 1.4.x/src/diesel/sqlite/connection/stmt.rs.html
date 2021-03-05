@@ -174,6 +174,13 @@
 <span id="171">171</span>
 <span id="172">172</span>
 <span id="173">173</span>
+<span id="174">174</span>
+<span id="175">175</span>
+<span id="176">176</span>
+<span id="177">177</span>
+<span id="178">178</span>
+<span id="179">179</span>
+<span id="180">180</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">libsqlite3_sys</span> <span class="kw">as</span> <span class="ident">ffi</span>;
 
@@ -235,9 +242,16 @@
         <span class="kw">unsafe</span> { <span class="ident">ffi</span>::<span class="ident">sqlite3_column_count</span>(<span class="self">self</span>.<span class="ident">inner_statement</span>.<span class="ident">as_ptr</span>()) <span class="kw">as</span> <span class="ident">usize</span> }
     }
 
-    <span class="doccomment">/// The lifetime of the returned CStr is shorter than self. This function</span>
-    <span class="doccomment">/// should be tied to a lifetime that ends before the next call to `reset`</span>
-    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">field_name</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">idx</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">CStr</span><span class="op">&gt;</span> {
+    <span class="doccomment">/// The lifetime of the returned CStr is shorter than self.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// &gt; The returned string pointer is valid until either the prepared statement</span>
+    <span class="doccomment">/// &gt; is destroyed by sqlite3_finalize() or until the statement is automatically</span>
+    <span class="doccomment">/// &gt; reprepared by the first call to sqlite3_step() for a particular</span>
+    <span class="doccomment">/// &gt; run or until the next call to sqlite3_column_name()</span>
+    <span class="doccomment">/// &gt; or sqlite3_column_name16() on the same column.</span>
+    <span class="doccomment">///</span>
+    <span class="doccomment">/// https://www.sqlite.org/c3ref/column_name.html</span>
+    <span class="kw">unsafe</span> <span class="kw">fn</span> <span class="ident">field_name</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="lifetime">&#39;b</span>: <span class="lifetime">&#39;a</span><span class="op">&gt;</span>(<span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="self">self</span>, <span class="ident">idx</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="ident">CStr</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">ptr</span> <span class="op">=</span> <span class="ident">ffi</span>::<span class="ident">sqlite3_column_name</span>(<span class="self">self</span>.<span class="ident">inner_statement</span>.<span class="ident">as_ptr</span>(), <span class="ident">idx</span> <span class="kw">as</span> <span class="ident">libc</span>::<span class="ident">c_int</span>);
         <span class="kw">if</span> <span class="ident">ptr</span>.<span class="ident">is_null</span>() {
             <span class="prelude-val">None</span>
