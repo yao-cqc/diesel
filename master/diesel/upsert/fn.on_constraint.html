@@ -8,7 +8,7 @@ unique constraint, not the name of an index.</p>
 <span class="kw">use</span> <span class="ident">diesel</span>::<span class="ident">upsert</span>::<span class="kw-2">*</span>;
 
 <span class="ident">conn</span>.<span class="ident">execute</span>(<span class="string">&quot;ALTER TABLE users ADD CONSTRAINT users_name UNIQUE (name)&quot;</span>).<span class="ident">unwrap</span>();
-<span class="kw">let</span> <span class="ident">user</span> <span class="op">=</span> <span class="ident">User</span> { <span class="ident">id</span>: <span class="number">1</span>, <span class="ident">name</span>: <span class="string">&quot;Sean&quot;</span>, };
+<span class="kw">let</span> <span class="ident">user</span> <span class="op">=</span> <span class="ident">User</span> { <span class="ident">id</span>: <span class="number">1</span>, <span class="ident">name</span>: <span class="string">&quot;Sean&quot;</span> };
 <span class="kw">let</span> <span class="ident">same_name_different_id</span> <span class="op">=</span> <span class="ident">User</span> { <span class="ident">id</span>: <span class="number">2</span>, <span class="ident">name</span>: <span class="string">&quot;Sean&quot;</span> };
 <span class="kw">let</span> <span class="ident">same_id_different_name</span> <span class="op">=</span> <span class="ident">User</span> { <span class="ident">id</span>: <span class="number">1</span>, <span class="ident">name</span>: <span class="string">&quot;Pascal&quot;</span> };
 
