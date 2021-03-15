@@ -231,9 +231,9 @@
 
     <span class="doccomment">/// Establishes a new connection to the database</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// The argument to this method varies by backend.</span>
+    <span class="doccomment">/// The argument to this method and the method&#39;s behavior varies by backend.</span>
     <span class="doccomment">/// See the documentation for that backend&#39;s connection class</span>
-    <span class="doccomment">/// for details about what it accepts.</span>
+    <span class="doccomment">/// for details about what it accepts and how it behaves.</span>
     <span class="kw">fn</span> <span class="ident">establish</span>(<span class="ident">database_url</span>: <span class="kw-2">&amp;</span><span class="ident">str</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">ConnectionResult</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span>;
 
     <span class="doccomment">/// Executes the given function inside of a database transaction</span>
