@@ -397,7 +397,7 @@ This method is only present on boxed queries.</p>
 <span class="macro">assert_eq</span><span class="macro">!</span>(<span class="macro">vec</span><span class="macro">!</span>[<span class="string">&quot;Sean&quot;</span>, <span class="string">&quot;Bastien&quot;</span>], <span class="ident">no_offset</span>);</pre></div>
 </div><h3 id="method.group_by" class="method"><code>fn <a href="#method.group_by" class="fnname">group_by</a>&lt;GB&gt;(self, group_by: GB) -&gt; <a class="type" href="../../diesel/helper_types/type.GroupBy.html" title="type diesel::helper_types::GroupBy">GroupBy</a>&lt;Self, GB&gt; <span class="where fmt-newline">where<br>&nbsp;&nbsp;&nbsp;&nbsp;GB: <a class="trait" href="../../diesel/prelude/trait.Expression.html" title="trait diesel::prelude::Expression">Expression</a>,<br>&nbsp;&nbsp;&nbsp;&nbsp;Self: <a class="trait" href="../../diesel/query_dsl/methods/trait.GroupByDsl.html" title="trait diesel::query_dsl::methods::GroupByDsl">GroupByDsl</a>&lt;GB&gt;,&nbsp;</span></code><a class="srclink" href="../../src/diesel/query_dsl/mod.rs.html#876-882" title="goto source code">[src]</a></h3><div class="docblock"><p>Sets the <code>group by</code> clause of a query.</p>
 <p><strong>Note:</strong> Queries having a <code>group by</code> clause require a custom select clause.
-Use <code>QueryDsl::select()</code> to specify one</p>
+Use <a href="../../diesel/prelude/trait.QueryDsl.html#method.select" title="QueryDsl::select()"><code>QueryDsl::select()</code></a> to specify one.</p>
 <p>If there was already a group by clause, it will be overridden.
 Ordering by multiple columns can be achieved by passing a tuple of those
 columns.</p>
