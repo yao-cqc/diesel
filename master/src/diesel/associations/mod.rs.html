@@ -413,7 +413,6 @@
 <span id="410">410</span>
 <span id="411">411</span>
 <span id="412">412</span>
-<span id="413">413</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! Traits related to relationships between multiple tables.</span>
 <span class="doccomment">//!</span>
@@ -493,7 +492,6 @@
 <span class="doccomment">//! # fn main() {}</span>
 <span class="doccomment">//! ```</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! [`Identifiable`]: trait.Identifiable.html</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! By default, Diesel assumes that your foreign keys will follow the convention `table_name_id`.</span>
 <span class="doccomment">//! If your foreign key has a different name,</span>
@@ -510,7 +508,7 @@
 <span class="doccomment">//! You can load the children for one or more parents using</span>
 <span class="doccomment">//! [`belonging_to`]</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! [`belonging_to`]: ../query_dsl/trait.BelongingToDsl.html#tymethod.belonging_to</span>
+<span class="doccomment">//! [`belonging_to`]: crate::query_dsl::BelongingToDsl::belonging_to</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ```rust</span>
 <span class="doccomment">//! # include!(&quot;../doctest_setup.rs&quot;);</span>
@@ -563,8 +561,8 @@
 <span class="doccomment">//! [`belonging_to`] can be used to load the data, but we&#39;ll also need to group it</span>
 <span class="doccomment">//! with its parents. For this we use an additional method [`grouped_by`].</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! [`grouped_by`]: trait.GroupedBy.html#tymethod.grouped_by</span>
-<span class="doccomment">//! [`belonging_to`]: ../query_dsl/trait.BelongingToDsl.html#tymethod.belonging_to</span>
+<span class="doccomment">//! [`grouped_by`]: GroupedBy::grouped_by</span>
+<span class="doccomment">//! [`belonging_to`]: crate::query_dsl::BelongingToDsl::belonging_to</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ```rust</span>
 <span class="doccomment">//! # include!(&quot;../doctest_setup.rs&quot;);</span>
@@ -803,7 +801,7 @@
 <span class="doccomment">/// `update(YourStruct::table().find(&amp;your_struct.primary_key())`).</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// This trait is usually implemented on a reference to a struct,</span>
-<span class="doccomment">/// not on the struct itself. It can be [derived](derive.Identifiable.html).</span>
+<span class="doccomment">/// not on the struct itself. It can be [derived](derive@Identifiable).</span>
 <span class="doccomment">///</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">Identifiable</span>: <span class="ident">HasTable</span> {
     <span class="doccomment">/// The type of this struct&#39;s identifier.</span>

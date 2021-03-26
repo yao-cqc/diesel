@@ -1784,7 +1784,7 @@
 <span class="doccomment">/// `all_columns`. The SQL type is needed for things like [returning boxed</span>
 <span class="doccomment">/// queries][boxed_queries].</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [boxed_queries]: query_dsl/trait.QueryDsl.html#method.into_boxed</span>
+<span class="doccomment">/// [boxed_queries]: crate::query_dsl::QueryDsl::into_boxed()</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// `BoxedQuery`</span>
 <span class="doccomment">/// ----------</span>
@@ -2502,13 +2502,13 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// * `child_table` is the Table with the Foreign key.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// So given the Table decaration from [Associations docs](associations/index.html)</span>
+<span class="doccomment">/// So given the Table decaration from [Associations docs](crate::associations)</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// * The parent table would be `User`</span>
 <span class="doccomment">/// * The child table would be `Post`</span>
 <span class="doccomment">/// * and the Foreign key would be `Post.user_id`</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// For joins that do not explicitly use on clauses via [`JoinOnDsl`](prelude/trait.JoinOnDsl.html)</span>
+<span class="doccomment">/// For joins that do not explicitly use on clauses via [`JoinOnDsl`](crate::prelude::JoinOnDsl)</span>
 <span class="doccomment">/// the following on clause is generated implicitly:</span>
 <span class="doccomment">/// ```sql</span>
 <span class="doccomment">/// post JOIN users ON posts.user_id = users.id</span>

@@ -7,8 +7,8 @@ DSL. You will need to provide the SQL type of the expression, in addition to
 the SQL.</p>
 <p>This function is intended for use when you need a small bit of raw SQL in
 your query. If you want to write the entire query using raw SQL, use
-<a href="../fn.sql_query.html"><code>sql_query</code></a> instead.</p>
-<p>Query parameters can be bound into the literal SQL using <a href="../expression/struct.SqlLiteral.html#method.bind"><code>SqlLiteral::bind()</code></a>.</p>
+<a href="../../diesel/fn.sql_query.html"><code>sql_query</code></a> instead.</p>
+<p>Query parameters can be bound into the literal SQL using <a href="../../diesel/expression/struct.SqlLiteral.html#method.bind"><code>SqlLiteral::bind()</code></a>.</p>
 <h1 id="safety" class="section-header"><a href="#safety">Safety</a></h1>
 <p>The compiler will be unable to verify the correctness of the annotated type.
 If you give the wrong type, it'll either return an error when deserializing

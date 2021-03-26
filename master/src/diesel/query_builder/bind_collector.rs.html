@@ -95,7 +95,7 @@
 <span class="doccomment">/// are adding support for a new backend to Diesel. Plugins which are extending</span>
 <span class="doccomment">/// the query builder will use [`AstPass::push_bind_param`] instead.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [`AstPass::push_bind_param`]: ../struct.AstPass.html#method.push_bind_param</span>
+<span class="doccomment">/// [`AstPass::push_bind_param`]: crate::query_builder::AstPass::push_bind_param()</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">BindCollector</span><span class="op">&lt;</span><span class="ident">DB</span>: <span class="ident">Backend</span><span class="op">&gt;</span> {
     <span class="doccomment">/// Serializes the given bind value, and collects the result.</span>
     <span class="kw">fn</span> <span class="ident">push_bound_value</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">U</span><span class="op">&gt;</span>(

@@ -48,13 +48,13 @@ one of the following is true:</p>
 <p><code>child_table</code> is the Table with the Foreign key.</p>
 </li>
 </ul>
-<p>So given the Table decaration from <a href="associations/index.html">Associations docs</a></p>
+<p>So given the Table decaration from <a href="../diesel/associations/index.html">Associations docs</a></p>
 <ul>
 <li>The parent table would be <code>User</code></li>
 <li>The child table would be <code>Post</code></li>
 <li>and the Foreign key would be <code>Post.user_id</code></li>
 </ul>
-<p>For joins that do not explicitly use on clauses via <a href="prelude/trait.JoinOnDsl.html"><code>JoinOnDsl</code></a>
+<p>For joins that do not explicitly use on clauses via <a href="../diesel/query_dsl/trait.JoinOnDsl.html"><code>JoinOnDsl</code></a>
 the following on clause is generated implicitly:</p>
 <pre><code class="language-sql">post JOIN users ON posts.user_id = users.id
 </code></pre>

@@ -8,7 +8,7 @@
 <div class="item-spacer"></div>    fn <a href="#tymethod.get_transaction_depth" class="fnname">get_transaction_depth</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.u32.html">u32</a>;
 }</pre></div><div class="docblock"><p>Manages the internal transaction state for a connection.</p>
 <p>You will not need to interact with this trait, unless you are writing an
-implementation of <a href="trait.Connection.html"><code>Connection</code></a>.</p>
+implementation of <a href="../../diesel/prelude/trait.Connection.html" title="Connection"><code>Connection</code></a>.</p>
 </div><h2 id="required-methods" class="small-section-header">Required methods<a href="#required-methods" class="anchor"></a></h2><div class="methods"><h3 id="tymethod.begin_transaction" class="method"><code>fn <a href="#tymethod.begin_transaction" class="fnname">begin_transaction</a>(&amp;self, conn: <a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.reference.html">&amp;</a>Conn) -&gt; <a class="type" href="../../diesel/prelude/type.QueryResult.html" title="type diesel::prelude::QueryResult">QueryResult</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/nightly/std/primitive.unit.html">()</a>&gt;</code><a class="srclink" href="../../src/diesel/connection/transaction_manager.rs.html#15" title="goto source code">[src]</a></h3><div class="docblock"><p>Begin a new transaction or savepoint</p>
 <p>If the transaction depth is greater than 0,
 this should create a savepoint instead.

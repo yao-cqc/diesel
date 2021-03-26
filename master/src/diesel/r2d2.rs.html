@@ -300,8 +300,8 @@
 
 <span class="doccomment">/// A re-export of [`r2d2::Error`], which is only used by methods on [`r2d2::Pool`].</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [`r2d2::Error`]: ../../r2d2/struct.Error.html</span>
-<span class="doccomment">/// [`r2d2::Pool`]: ../../r2d2/struct.Pool.html</span>
+<span class="doccomment">/// [`r2d2::Error`]: r2d2::Error</span>
+<span class="doccomment">/// [`r2d2::Pool`]: r2d2::Pool</span>
 <span class="kw">pub</span> <span class="kw">type</span> <span class="ident">PoolError</span> <span class="op">=</span> <span class="self">self</span>::<span class="ident">r2d2</span>::<span class="ident">Error</span>;
 
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">convert</span>::<span class="ident">Into</span>;
@@ -318,7 +318,7 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// See the [r2d2 documentation] for usage examples.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [r2d2 documentation]: ../../r2d2</span>
+<span class="doccomment">/// [r2d2 documentation]: r2d2</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Clone</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">ConnectionManager</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
     <span class="ident">database_url</span>: <span class="ident">String</span>,

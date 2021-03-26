@@ -196,6 +196,13 @@
 <span id="193">193</span>
 <span id="194">194</span>
 <span id="195">195</span>
+<span id="196">196</span>
+<span id="197">197</span>
+<span id="198">198</span>
+<span id="199">199</span>
+<span id="200">200</span>
+<span id="201">201</span>
+<span id="202">202</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! MySQL specific types</span>
 
@@ -386,9 +393,16 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// - [`chrono::NaiveDateTime`] with `feature = &quot;chrono&quot;`</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [`ToSql`]: ../../serialize/trait.ToSql.html</span>
-<span class="doccomment">/// [`FromSql`]: ../../deserialize/trait.FromSql.html</span>
-<span class="doccomment">/// [`chrono::NaiveDateTime`]: ../../../chrono/naive/struct.NaiveDateTime.html</span>
+<span class="doccomment">/// [`ToSql`]: crate::serialize::ToSql</span>
+<span class="doccomment">/// [`FromSql`]: crate::deserialize::FromSql</span>
+<span class="attribute">#[<span class="ident">cfg_attr</span>(
+    <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;chrono&quot;</span>,
+    <span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot; [`chrono::NaiveDateTime`]: chrono::naive::NaiveDateTime&quot;</span>
+)]</span>
+<span class="attribute">#[<span class="ident">cfg_attr</span>(
+    <span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;chrono&quot;</span>),
+    <span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot; [`chrono::NaiveDateTime`]: https://docs.rs/chrono/0.4.19/chrono/naive/struct.NaiveDateTime.html&quot;</span>
+)]</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">Default</span>, <span class="ident">QueryId</span>, <span class="ident">SqlType</span>)]</span>
 <span class="attribute">#[<span class="ident">mysql_type</span> <span class="op">=</span> <span class="string">&quot;DateTime&quot;</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Datetime</span>;

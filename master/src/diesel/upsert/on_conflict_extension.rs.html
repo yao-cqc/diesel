@@ -582,7 +582,7 @@
     <span class="doccomment">/// more examples.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// [`on_constraint`]: ../upsert/fn.on_constraint.html</span>
-    <span class="doccomment">/// [`do_update`]: ../upsert/struct.IncompleteOnConflict.html#method.do_update</span>
+    <span class="doccomment">/// [`do_update`]: crate::upsert::IncompleteOnConflict::do_update()</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">on_conflict</span><span class="op">&lt;</span><span class="ident">Target</span><span class="op">&gt;</span>(
         <span class="self">self</span>,
         <span class="ident">target</span>: <span class="ident">Target</span>,
@@ -626,8 +626,8 @@
     <span class="doccomment">/// [`on_conflict_do_nothing`] instead. See [`on_conflict`] for usage</span>
     <span class="doccomment">/// examples.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`on_conflict_do_nothing`]: ../../query_builder/struct.InsertStatement.html#method.on_conflict_do_nothing</span>
-    <span class="doccomment">/// [`on_conflict`]: ../../query_builder/struct.InsertStatement.html#method.on_conflict</span>
+    <span class="doccomment">/// [`on_conflict_do_nothing`]: crate::query_builder::InsertStatement::on_conflict_do_nothing()</span>
+    <span class="doccomment">/// [`on_conflict`]: crate::query_builder::InsertStatement::on_conflict()</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">do_nothing</span>(<span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">InsertStatement</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">OnConflictValues</span><span class="op">&lt;</span><span class="ident">U</span>, <span class="ident">Target</span>, <span class="ident">DoNothing</span><span class="op">&gt;</span>, <span class="ident">Op</span>, <span class="ident">Ret</span><span class="op">&gt;</span> {
         <span class="kw">let</span> <span class="ident">target</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">target</span>;
         <span class="self">self</span>.<span class="ident">stmt</span>
@@ -769,7 +769,7 @@
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">U</span>, <span class="ident">Op</span>, <span class="ident">Ret</span>, <span class="ident">Target</span><span class="op">&gt;</span> <span class="ident">IncompleteDoUpdate</span><span class="op">&lt;</span><span class="ident">InsertStatement</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">U</span>, <span class="ident">Op</span>, <span class="ident">Ret</span><span class="op">&gt;</span>, <span class="ident">Target</span><span class="op">&gt;</span> {
     <span class="doccomment">/// See [`do_update`] for usage examples.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`do_update`]: struct.IncompleteOnConflict.html#method.do_update</span>
+    <span class="doccomment">/// [`do_update`]: IncompleteOnConflict::do_update()</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set</span><span class="op">&lt;</span><span class="ident">Changes</span><span class="op">&gt;</span>(
         <span class="self">self</span>,
         <span class="ident">changes</span>: <span class="ident">Changes</span>,

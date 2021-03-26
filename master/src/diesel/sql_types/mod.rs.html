@@ -633,6 +633,10 @@
 <span id="630">630</span>
 <span id="631">631</span>
 <span id="632">632</span>
+<span id="633">633</span>
+<span id="634">634</span>
+<span id="635">635</span>
+<span id="636">636</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! Types which represent a SQL data type.</span>
 <span class="doccomment">//!</span>
@@ -645,7 +649,7 @@
 <span class="doccomment">//! To see which SQL type can be used with a given Rust type,</span>
 <span class="doccomment">//! see the &quot;Implementors&quot; section of [`FromSql`].</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! [`FromSql`]: ../deserialize/trait.FromSql.html</span>
+<span class="doccomment">//! [`FromSql`]: super::deserialize::FromSql</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! Any backend specific types are re-exported through this module</span>
 
@@ -664,11 +668,11 @@
 <span class="doccomment">/// On backends without a native boolean type,</span>
 <span class="doccomment">/// this is emulated with the smallest supported integer.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`ToSql`](../serialize/trait.ToSql.html) impls</span>
+<span class="doccomment">/// ### [`ToSql`](crate::serialize::ToSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - [`bool`][bool]</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`FromSql`](../deserialize/trait.FromSql.html) impls</span>
+<span class="doccomment">/// ### [`FromSql`](crate::deserialize::FromSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - [`bool`][bool]</span>
 <span class="doccomment">///</span>
@@ -685,11 +689,11 @@
 <span class="doccomment">/// Keep in mind that `diesel print-schema` will see `TINYINT(1)` as `Bool`,</span>
 <span class="doccomment">/// not `TinyInt`.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`ToSql`](../serialize/trait.ToSql.html) impls</span>
+<span class="doccomment">/// ### [`ToSql`](crate::serialize::ToSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - [`i8`][i8]</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`FromSql`](../deserialize/trait.FromSql.html) impls</span>
+<span class="doccomment">/// ### [`FromSql`](crate::deserialize::FromSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - [`i8`][i8]</span>
 <span class="doccomment">///</span>
@@ -702,11 +706,11 @@
 
 <span class="doccomment">/// The small integer SQL type.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`ToSql`](../serialize/trait.ToSql.html) impls</span>
+<span class="doccomment">/// ### [`ToSql`](crate::serialize::ToSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - [`i16`][i16]</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`FromSql`](../deserialize/trait.FromSql.html) impls</span>
+<span class="doccomment">/// ### [`FromSql`](crate::deserialize::FromSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - [`i16`][i16]</span>
 <span class="doccomment">///</span>
@@ -723,11 +727,11 @@
 
 <span class="doccomment">/// The integer SQL type.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`ToSql`](../serialize/trait.ToSql.html) impls</span>
+<span class="doccomment">/// ### [`ToSql`](crate::serialize::ToSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - [`i32`][i32]</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`FromSql`](../deserialize/trait.FromSql.html) impls</span>
+<span class="doccomment">/// ### [`FromSql`](crate::deserialize::FromSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - [`i32`][i32]</span>
 <span class="doccomment">///</span>
@@ -742,11 +746,11 @@
 
 <span class="doccomment">/// The big integer SQL type.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`ToSql`](../serialize/trait.ToSql.html) impls</span>
+<span class="doccomment">/// ### [`ToSql`](crate::serialize::ToSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - [`i64`][i64]</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`FromSql`](../deserialize/trait.FromSql.html) impls</span>
+<span class="doccomment">/// ### [`FromSql`](crate::deserialize::FromSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - [`i64`][i64]</span>
 <span class="doccomment">///</span>
@@ -763,11 +767,11 @@
 
 <span class="doccomment">/// The float SQL type.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`ToSql`](../serialize/trait.ToSql.html) impls</span>
+<span class="doccomment">/// ### [`ToSql`](crate::serialize::ToSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - [`f32`][f32]</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`FromSql`](../deserialize/trait.FromSql.html) impls</span>
+<span class="doccomment">/// ### [`FromSql`](crate::deserialize::FromSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - [`f32`][f32]</span>
 <span class="doccomment">///</span>
@@ -782,11 +786,11 @@
 
 <span class="doccomment">/// The double precision float SQL type.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`ToSql`](../serialize/trait.ToSql.html) impls</span>
+<span class="doccomment">/// ### [`ToSql`](crate::serialize::ToSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - [`f64`][f64]</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`FromSql`](../deserialize/trait.FromSql.html) impls</span>
+<span class="doccomment">/// ### [`FromSql`](crate::deserialize::FromSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - [`f64`][f64]</span>
 <span class="doccomment">///</span>
@@ -802,13 +806,13 @@
 <span class="doccomment">/// The arbitrary precision numeric SQL type.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// This type is only supported on PostgreSQL and MySQL.</span>
-<span class="doccomment">/// On SQLite, [`Double`](struct.Double.html) should be used instead.</span>
+<span class="doccomment">/// On SQLite, [`Double`] should be used instead.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`ToSql`](../serialize/trait.ToSql.html) impls</span>
+<span class="doccomment">/// ### [`ToSql`](crate::serialize::ToSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - [`bigdecimal::BigDecimal`] with `feature = [&quot;numeric&quot;]`</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`FromSql`](../deserialize/trait.FromSql.html) impls</span>
+<span class="doccomment">/// ### [`FromSql`](crate::deserialize::FromSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - [`bigdecimal::BigDecimal`] with `feature = [&quot;numeric&quot;]`</span>
 <span class="doccomment">///</span>
@@ -830,16 +834,16 @@
 <span class="doccomment">/// Schema inference will treat all variants of `TEXT` as this type (e.g.</span>
 <span class="doccomment">/// `VARCHAR`, `MEDIUMTEXT`, etc).</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`ToSql`](../serialize/trait.ToSql.html) impls</span>
+<span class="doccomment">/// ### [`ToSql`](crate::serialize::ToSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - [`String`][String]</span>
 <span class="doccomment">/// - [`&amp;str`][str]</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`FromSql`](../deserialize/trait.FromSql.html) impls</span>
+<span class="doccomment">/// ### [`FromSql`](crate::deserialize::FromSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - [`String`][String]</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [String]: https://doc.rust-lang.org/nightly/std/string/struct.String.html</span>
+<span class="doccomment">/// [String]: std::string::String</span>
 <span class="doccomment">/// [str]: https://doc.rust-lang.org/nightly/std/primitive.str.html</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">Default</span>, <span class="ident">QueryId</span>, <span class="ident">SqlType</span>)]</span>
 <span class="attribute">#[<span class="ident">postgres</span>(<span class="ident">oid</span> <span class="op">=</span> <span class="string">&quot;25&quot;</span>, <span class="ident">array_oid</span> <span class="op">=</span> <span class="string">&quot;1009&quot;</span>)]</span>
@@ -873,16 +877,16 @@
 <span class="doccomment">/// Schema inference will treat all variants of `BLOB` as this type (e.g.</span>
 <span class="doccomment">/// `VARBINARY`, `MEDIUMBLOB`, etc).</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`ToSql`](../serialize/trait.ToSql.html) impls</span>
+<span class="doccomment">/// ### [`ToSql`](crate::serialize::ToSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - [`Vec&lt;u8&gt;`][Vec]</span>
 <span class="doccomment">/// - [`&amp;[u8]`][slice]</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`FromSql`](../deserialize/trait.FromSql.html) impls</span>
+<span class="doccomment">/// ### [`FromSql`](crate::deserialize::FromSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - [`Vec&lt;u8&gt;`][Vec]</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [Vec]: https://doc.rust-lang.org/nightly/std/vec/struct.Vec.html</span>
+<span class="doccomment">/// [Vec]: std::vec::Vec</span>
 <span class="doccomment">/// [slice]: https://doc.rust-lang.org/nightly/std/primitive.slice.html</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">Default</span>, <span class="ident">QueryId</span>, <span class="ident">SqlType</span>)]</span>
 <span class="attribute">#[<span class="ident">postgres</span>(<span class="ident">oid</span> <span class="op">=</span> <span class="string">&quot;17&quot;</span>, <span class="ident">array_oid</span> <span class="op">=</span> <span class="string">&quot;1001&quot;</span>)]</span>
@@ -905,15 +909,15 @@
 
 <span class="doccomment">/// The date SQL type.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`ToSql`](../serialize/trait.ToSql.html) impls</span>
+<span class="doccomment">/// ### [`ToSql`](crate::serialize::ToSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - [`chrono::NaiveDate`][NaiveDate] with `feature = &quot;chrono&quot;`</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`FromSql`](../deserialize/trait.FromSql.html) impls</span>
+<span class="doccomment">/// ### [`FromSql`](crate::deserialize::FromSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - [`chrono::NaiveDate`][NaiveDate] with `feature = &quot;chrono&quot;`</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [NaiveDate]: /chrono/naive/date/struct.NaiveDate.html</span>
+<span class="doccomment">/// [NaiveDate]: https://docs.rs/chrono/*/chrono/naive/struct.NaiveDate.html</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">Default</span>, <span class="ident">QueryId</span>, <span class="ident">SqlType</span>)]</span>
 <span class="attribute">#[<span class="ident">postgres</span>(<span class="ident">oid</span> <span class="op">=</span> <span class="string">&quot;1082&quot;</span>, <span class="ident">array_oid</span> <span class="op">=</span> <span class="string">&quot;1182&quot;</span>)]</span>
 <span class="attribute">#[<span class="ident">sqlite_type</span> <span class="op">=</span> <span class="string">&quot;Text&quot;</span>]</span>
@@ -924,11 +928,11 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// This type is currently only implemented for PostgreSQL.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`ToSql`](../serialize/trait.ToSql.html) impls</span>
+<span class="doccomment">/// ### [`ToSql`](crate::serialize::ToSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - [`PgInterval`] which can be constructed using [`IntervalDsl`]</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`FromSql`](../deserialize/trait.FromSql.html) impls</span>
+<span class="doccomment">/// ### [`FromSql`](crate::deserialize::FromSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - [`PgInterval`] which can be constructed using [`IntervalDsl`]</span>
 <span class="doccomment">///</span>
@@ -940,11 +944,11 @@
 
 <span class="doccomment">/// The time SQL type.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`ToSql`](../serialize/trait.ToSql.html) impls</span>
+<span class="doccomment">/// ### [`ToSql`](crate::serialize::ToSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - [`chrono::NaiveTime`][NaiveTime] with `feature = &quot;chrono&quot;`</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`FromSql`](../deserialize/trait.FromSql.html) impls</span>
+<span class="doccomment">/// ### [`FromSql`](crate::deserialize::FromSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - [`chrono::NaiveTime`][NaiveTime] with `feature = &quot;chrono&quot;`</span>
 <span class="doccomment">///</span>
@@ -957,20 +961,27 @@
 
 <span class="doccomment">/// The timestamp SQL type.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`ToSql`](../serialize/trait.ToSql.html) impls</span>
+<span class="doccomment">/// ### [`ToSql`](crate::serialize::ToSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - [`std::time::SystemTime`][SystemTime] (PG only)</span>
 <span class="doccomment">/// - [`chrono::NaiveDateTime`][NaiveDateTime] with `feature = &quot;chrono&quot;`</span>
 <span class="doccomment">/// - [`time::Timespec`][Timespec] with `feature = &quot;deprecated-time&quot;` (PG only)</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`FromSql`](../deserialize/trait.FromSql.html) impls</span>
+<span class="doccomment">/// ### [`FromSql`](crate::deserialize::FromSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - [`std::time::SystemTime`][SystemTime] (PG only)</span>
 <span class="doccomment">/// - [`chrono::NaiveDateTime`][NaiveDateTime] with `feature = &quot;chrono&quot;`</span>
 <span class="doccomment">/// - [`time::Timespec`][Timespec] with `feature = &quot;deprecated-time&quot;` (PG only)</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [SystemTime]: https://doc.rust-lang.org/nightly/std/time/struct.SystemTime.html</span>
-<span class="doccomment">/// [NaiveDateTime]: /chrono/naive/datetime/struct.NaiveDateTime.html</span>
+<span class="doccomment">/// [SystemTime]: std::time::SystemTime</span>
+<span class="attribute">#[<span class="ident">cfg_attr</span>(
+    <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;chrono&quot;</span>,
+    <span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot; [NaiveDateTime]: chrono::naive::NaiveDateTime&quot;</span>
+)]</span>
+<span class="attribute">#[<span class="ident">cfg_attr</span>(
+    <span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;chrono&quot;</span>),
+    <span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot; [NaiveDateTime]: https://docs.rs/chrono/*/chrono/naive/struct.NaiveDateTime.html&quot;</span>
+)]</span>
 <span class="doccomment">/// [Timespec]: /time/struct.Timespec.html</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">Default</span>, <span class="ident">QueryId</span>, <span class="ident">SqlType</span>)]</span>
 <span class="attribute">#[<span class="ident">postgres</span>(<span class="ident">oid</span> <span class="op">=</span> <span class="string">&quot;1114&quot;</span>, <span class="ident">array_oid</span> <span class="op">=</span> <span class="string">&quot;1115&quot;</span>)]</span>
@@ -1005,12 +1016,12 @@
 <span class="doccomment">/// This wraps another SQL type to indicate that it can be null.</span>
 <span class="doccomment">/// By default all values are assumed to be `NOT NULL`.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`ToSql`](../serialize/trait.ToSql.html) impls</span>
+<span class="doccomment">/// ### [`ToSql`](crate::serialize::ToSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - Any `T` which implements `ToSql&lt;ST&gt;`</span>
 <span class="doccomment">/// - `Option&lt;T&gt;` for any `T` which implements `ToSql&lt;ST&gt;`</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ### [`FromSql`](../deserialize/trait.FromSql.html) impls</span>
+<span class="doccomment">/// ### [`FromSql`](crate::deserialize::FromSql) impls</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// - `Option&lt;T&gt;` for any `T` which implements `FromSql&lt;ST&gt;`</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">Default</span>)]</span>
@@ -1031,7 +1042,7 @@
 
 <span class="doccomment">/// Indicates that a SQL type exists for a backend.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// This trait can be derived using the [`SqlType` derive](derive.SqlType.html)</span>
+<span class="doccomment">/// This trait can be derived using the [`SqlType` derive](derive@SqlType)</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// # Example</span>
 <span class="doccomment">///</span>
@@ -1120,9 +1131,8 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// # Deriving</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// This trait is automatically implemented by [`#[derive(SqlType)]`]</span>
+<span class="doccomment">/// This trait is automatically implemented by [`#[derive(SqlType)]`](derive@SqlType)</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [`#[derive(SqlType)]`]: derive.SqlType.html</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">SingleValue</span>: <span class="ident">SqlType</span> {}
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">SqlType</span> <span class="op">+</span> <span class="ident">SingleValue</span><span class="op">&gt;</span> <span class="ident">SingleValue</span> <span class="kw">for</span> <span class="ident">Nullable</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {}
@@ -1136,18 +1146,16 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// # Deriving</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// This trait is automatically implemented by [`#[derive(SqlType)]`]</span>
+<span class="doccomment">/// This trait is automatically implemented by [`#[derive(SqlType)]`](derive@SqlType)</span>
 <span class="doccomment">/// which sets `IsNull` to [`is_nullable::NotNull`]</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [`#[derive(SqlType)]`]: derive.SqlType.html</span>
-<span class="doccomment">/// [`is_nullable::NotNull`]: is_nullable/struct.NotNull.html</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">SqlType</span> {
     <span class="doccomment">/// Is this type nullable?</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// This type should always be one of the structs in the [&#39;is_nullable`]</span>
     <span class="doccomment">/// module. See the documentation of those structs for more details.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [&#39;is_nullable`]: is_nullable/index.html</span>
+    <span class="doccomment">/// [&#39;is_nullable`]: is_nullable</span>
     <span class="kw">type</span> <span class="ident">IsNull</span>: <span class="ident">OneIsNullable</span><span class="op">&lt;</span><span class="ident">is_nullable</span>::<span class="ident">IsNullable</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">OneIsNullable</span><span class="op">&lt;</span><span class="ident">is_nullable</span>::<span class="ident">NotNull</span><span class="op">&gt;</span>;
 }
 
@@ -1189,7 +1197,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// The only diesel provided `SqlType` that uses this value is [`Nullable&lt;T&gt;`]</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`Nullable&lt;T&gt;`]: ../struct.Nullable.html</span>
+    <span class="doccomment">/// [`Nullable&lt;T&gt;`]: Nullable</span>
     <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>)]</span>
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">IsNullable</span>;
 
@@ -1240,15 +1248,15 @@
         <span class="kw">type</span> <span class="ident">Out</span> <span class="op">=</span> <span class="ident">Nullable</span><span class="op">&lt;</span><span class="ident">O</span><span class="op">&gt;</span>;
     }
 
-    <span class="doccomment">/// Represents the output type of [`MaybeNullableType`](../trait.MaybeNullableType.html)</span>
+    <span class="doccomment">/// Represents the output type of [`MaybeNullableType`]</span>
     <span class="kw">pub</span> <span class="kw">type</span> <span class="ident">MaybeNullable</span><span class="op">&lt;</span><span class="ident">N</span>, <span class="ident">T</span><span class="op">&gt;</span> <span class="op">=</span> <span class="op">&lt;</span><span class="ident">N</span> <span class="kw">as</span> <span class="ident">MaybeNullableType</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span><span class="op">&gt;</span>::<span class="ident">Out</span>;
 
-    <span class="doccomment">/// Represents the output type of [`OneIsNullable`](../trait.OneIsNullable.html)</span>
+    <span class="doccomment">/// Represents the output type of [`OneIsNullable`]</span>
     <span class="doccomment">/// for two given SQL types</span>
     <span class="kw">pub</span> <span class="kw">type</span> <span class="ident">IsOneNullable</span><span class="op">&lt;</span><span class="ident">S1</span>, <span class="ident">S2</span><span class="op">&gt;</span> <span class="op">=</span>
         <span class="op">&lt;</span><span class="ident">IsSqlTypeNullable</span><span class="op">&lt;</span><span class="ident">S1</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="ident">OneIsNullable</span><span class="op">&lt;</span><span class="ident">IsSqlTypeNullable</span><span class="op">&lt;</span><span class="ident">S2</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="op">&gt;</span>::<span class="ident">Out</span>;
 
-    <span class="doccomment">/// Represents the output type of [`AllAreNullable`](../trait.AllAreNullable.html)</span>
+    <span class="doccomment">/// Represents the output type of [`AllAreNullable`]</span>
     <span class="doccomment">/// for two given SQL types</span>
     <span class="kw">pub</span> <span class="kw">type</span> <span class="ident">AreAllNullable</span><span class="op">&lt;</span><span class="ident">S1</span>, <span class="ident">S2</span><span class="op">&gt;</span> <span class="op">=</span>
         <span class="op">&lt;</span><span class="ident">IsSqlTypeNullable</span><span class="op">&lt;</span><span class="ident">S1</span><span class="op">&gt;</span> <span class="kw">as</span> <span class="ident">AllAreNullable</span><span class="op">&lt;</span><span class="ident">IsSqlTypeNullable</span><span class="op">&lt;</span><span class="ident">S2</span><span class="op">&gt;</span><span class="op">&gt;</span><span class="op">&gt;</span>::<span class="ident">Out</span>;

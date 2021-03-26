@@ -435,8 +435,6 @@
 <span id="432">432</span>
 <span id="433">433</span>
 <span id="434">434</span>
-<span id="435">435</span>
-<span id="436">436</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! # Diesel</span>
 <span class="doccomment">//!</span>
@@ -459,7 +457,6 @@
 <span class="doccomment">//! to automatically generate these macro calls</span>
 <span class="doccomment">//! (by connecting to your database and querying its schema).</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! [`table!`]: macro.table.html</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ## Getting started</span>
 <span class="doccomment">//!</span>
@@ -472,7 +469,7 @@
 <span class="doccomment">//! and avoid anything which has a generic name.</span>
 <span class="doccomment">//! Files which use Diesel are expected to have `use diesel::prelude::*;`.</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! [`update`]: fn.update.html</span>
+<span class="doccomment">//! [`update`]: update()</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ## Constructing a query</span>
 <span class="doccomment">//!</span>
@@ -501,7 +498,6 @@
 <span class="doccomment">//!   with [the `sql_function!` macro][`sql_function!`].</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! [`std::ops`]: //doc.rust-lang.org/stable/std/ops/index.html</span>
-<span class="doccomment">//! [`sql_function!`]: macro.sql_function.html</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ## Serializing and Deserializing</span>
 <span class="doccomment">//!</span>
@@ -522,10 +518,10 @@
 <span class="doccomment">//! go to the &quot;Implementors&quot; section,</span>
 <span class="doccomment">//! and find the Rust type you want to use.</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! [`Queryable`]: deserialize/trait.Queryable.html</span>
-<span class="doccomment">//! [`diesel::sql_types::Integer`]: sql_types/struct.Integer.html</span>
-<span class="doccomment">//! [`ToSql`]: serialize/trait.ToSql.html</span>
-<span class="doccomment">//! [`FromSql`]: deserialize/trait.FromSql.html</span>
+<span class="doccomment">//! [`Queryable`]: deserialize::Queryable</span>
+<span class="doccomment">//! [`diesel::sql_types::Integer`]: sql_types::Integer</span>
+<span class="doccomment">//! [`ToSql`]: serialize::ToSql</span>
+<span class="doccomment">//! [`FromSql`]: deserialize::FromSql</span>
 <span class="doccomment">//!</span>
 <span class="doccomment">//! ## Getting help</span>
 <span class="doccomment">//!</span>

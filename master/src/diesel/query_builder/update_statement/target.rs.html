@@ -73,9 +73,9 @@
 <span class="doccomment">/// which implements `Identifiable` is the same as passing</span>
 <span class="doccomment">/// `SomeStruct::table().find(some_struct)`.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [`update`]: ../fn.update.html</span>
-<span class="doccomment">/// [`delete`]: ../fn.delete.html</span>
-<span class="doccomment">/// [`filter`]: struct.UpdateStatement.html#method.filter</span>
+<span class="doccomment">/// [`update`]: crate::update()</span>
+<span class="doccomment">/// [`delete`]: crate::delete()</span>
+<span class="doccomment">/// [`filter`]: crate::query_builder::UpdateStatement::filter()</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">IntoUpdateTarget</span>: <span class="ident">HasTable</span> {
     <span class="doccomment">/// What is the `WHERE` clause of this target?</span>
     <span class="kw">type</span> <span class="ident">WhereClause</span>;

@@ -205,7 +205,6 @@
 <span id="202">202</span>
 <span id="203">203</span>
 <span id="204">204</span>
-<span id="205">205</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! Contains the `Row` trait</span>
 
@@ -225,7 +224,6 @@
 <span class="doccomment">/// * Crates implementing custom backends need to provide `RowIndex&lt;usize&gt;` and</span>
 <span class="doccomment">///   `RowIndex&lt;&amp;str&gt;` impls for their [`Row`] type.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [`Row`]: trait.Row.html</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">RowIndex</span><span class="op">&lt;</span><span class="ident">I</span><span class="op">&gt;</span> {
     <span class="doccomment">/// Get the numeric index inside the current row for the provided index value</span>
     <span class="kw">fn</span> <span class="ident">idx</span>(<span class="kw-2">&amp;</span><span class="self">self</span>, <span class="ident">idx</span>: <span class="ident">I</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Option</span><span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;</span>;
@@ -235,7 +233,7 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// This trait is used as an argument to [`FromSqlRow`].</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [`FromSqlRow`]: ../deserialize/trait.FromSqlRow.html</span>
+<span class="doccomment">/// [`FromSqlRow`]: crate::deserialize::FromSqlRow</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">Row</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>: <span class="ident">Backend</span><span class="op">&gt;</span>: <span class="ident">RowIndex</span><span class="op">&lt;</span><span class="ident">usize</span><span class="op">&gt;</span> <span class="op">+</span> <span class="kw">for</span><span class="op">&lt;</span><span class="lifetime">&#39;b</span><span class="op">&gt;</span> <span class="ident">RowIndex</span><span class="op">&lt;</span><span class="kw-2">&amp;</span><span class="lifetime">&#39;b</span> <span class="ident">str</span><span class="op">&gt;</span> <span class="op">+</span> <span class="ident">Sized</span> {
     <span class="doccomment">/// Field type returned by a `Row` implementation</span>
     <span class="doccomment">///</span>
@@ -381,7 +379,7 @@
 <span class="doccomment">/// rather than by index.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// This trait is used by implementations of</span>
-<span class="doccomment">/// [`QueryableByName`](../deserialize/trait.QueryableByName.html)</span>
+<span class="doccomment">/// [`QueryableByName`](crate::deserialize::QueryableByName)</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">NamedRow</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span>: <span class="ident">Backend</span><span class="op">&gt;</span>: <span class="ident">Row</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span>, <span class="ident">DB</span><span class="op">&gt;</span> {
     <span class="doccomment">/// Retrieve and deserialize a single value from the query</span>
     <span class="doccomment">///</span>

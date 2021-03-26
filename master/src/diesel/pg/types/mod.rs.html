@@ -513,6 +513,32 @@
 <span id="510">510</span>
 <span id="511">511</span>
 <span id="512">512</span>
+<span id="513">513</span>
+<span id="514">514</span>
+<span id="515">515</span>
+<span id="516">516</span>
+<span id="517">517</span>
+<span id="518">518</span>
+<span id="519">519</span>
+<span id="520">520</span>
+<span id="521">521</span>
+<span id="522">522</span>
+<span id="523">523</span>
+<span id="524">524</span>
+<span id="525">525</span>
+<span id="526">526</span>
+<span id="527">527</span>
+<span id="528">528</span>
+<span id="529">529</span>
+<span id="530">530</span>
+<span id="531">531</span>
+<span id="532">532</span>
+<span id="533">533</span>
+<span id="534">534</span>
+<span id="535">535</span>
+<span id="536">536</span>
+<span id="537">537</span>
+<span id="538">538</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! PostgreSQL specific types</span>
 
@@ -553,8 +579,8 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// - [`u32`]</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`ToSql`]: ../../../serialize/trait.ToSql.html</span>
-    <span class="doccomment">/// [`FromSql`]: ../../../deserialize/trait.FromSql.html</span>
+    <span class="doccomment">/// [`ToSql`]: crate::serialize::ToSql</span>
+    <span class="doccomment">/// [`FromSql`]: crate::deserialize::FromSql</span>
     <span class="doccomment">/// [`u32`]: https://doc.rust-lang.org/nightly/std/primitive.u32.html</span>
     <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">Default</span>, <span class="ident">QueryId</span>, <span class="ident">SqlType</span>)]</span>
     <span class="attribute">#[<span class="ident">postgres</span>(<span class="ident">oid</span> <span class="op">=</span> <span class="string">&quot;26&quot;</span>, <span class="ident">array_oid</span> <span class="op">=</span> <span class="string">&quot;1018&quot;</span>)]</span>
@@ -575,11 +601,22 @@
     <span class="doccomment">/// - [`chrono::NaiveDateTime`] with `feature = &quot;chrono&quot;`</span>
     <span class="doccomment">/// - [`chrono::DateTime`] with `feature = &quot;chrono&quot;`</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`ToSql`]: ../../../serialize/trait.ToSql.html</span>
-    <span class="doccomment">/// [`FromSql`]: ../../../deserialize/trait.FromSql.html</span>
-    <span class="doccomment">/// [`PgTimestamp`]: ../../data_types/struct.PgTimestamp.html</span>
-    <span class="doccomment">/// [`chrono::NaiveDateTime`]: ../../../../chrono/naive/struct.NaiveDateTime.html</span>
-    <span class="doccomment">/// [`chrono::DateTime`]: ../../../../chrono/struct.DateTime.html</span>
+    <span class="doccomment">/// [`ToSql`]: crate::serialize::ToSql</span>
+    <span class="doccomment">/// [`FromSql`]: crate::deserialize::FromSql</span>
+    <span class="doccomment">/// [`PgTimestamp`]: super::super::data_types::PgTimestamp</span>
+    <span class="attribute">#[<span class="ident">cfg_attr</span>(
+        <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;chrono&quot;</span>,
+        <span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot; [`chrono::NaiveDateTime`]: chrono::naive::NaiveDateTime&quot;</span>
+    )]</span>
+    <span class="attribute">#[<span class="ident">cfg_attr</span>(
+        <span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;chrono&quot;</span>),
+        <span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot; [`chrono::NaiveDateTime`]: https://docs.rs/chrono/0.4.19/chrono/naive/struct.NaiveDateTime.html&quot;</span>
+    )]</span>
+    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;chrono&quot;</span>, <span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot; [`chrono::DateTime`]: chrono::DateTime&quot;</span>)]</span>
+    <span class="attribute">#[<span class="ident">cfg_attr</span>(
+        <span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;chrono&quot;</span>),
+        <span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot; [`chrono::DateTime`]: https://docs.rs/chrono/0.4.19/chrono/struct.DateTime.html&quot;</span>
+    )]</span>
     <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">Default</span>, <span class="ident">QueryId</span>, <span class="ident">SqlType</span>)]</span>
     <span class="attribute">#[<span class="ident">postgres</span>(<span class="ident">oid</span> <span class="op">=</span> <span class="string">&quot;1184&quot;</span>, <span class="ident">array_oid</span> <span class="op">=</span> <span class="string">&quot;1185&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Timestamptz</span>;
@@ -599,9 +636,9 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// - [`Vec&lt;T&gt;`][Vec] for any `T` which implements `ToSql&lt;ST&gt;`</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`ToSql`]: ../../../serialize/trait.ToSql.html</span>
-    <span class="doccomment">/// [`FromSql`]: ../../../deserialize/trait.FromSql.html</span>
-    <span class="doccomment">/// [Vec]: https://doc.rust-lang.org/nightly/std/vec/struct.Vec.html</span>
+    <span class="doccomment">/// [`ToSql`]: crate::serialize::ToSql</span>
+    <span class="doccomment">/// [`FromSql`]: crate::deserialize::FromSql</span>
+    <span class="doccomment">/// [Vec]: std::vec::Vec</span>
     <span class="doccomment">/// [slice]: https://doc.rust-lang.org/nightly/std/primitive.slice.html</span>
     <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">Default</span>, <span class="ident">QueryId</span>, <span class="ident">SqlType</span>)]</span>
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Array</span><span class="op">&lt;</span><span class="ident">ST</span><span class="op">&gt;</span>(<span class="ident">ST</span>);
@@ -618,9 +655,9 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// - [`(Bound&lt;T&gt;, Bound&lt;T&gt;)`][bound] for any `T` which implements `FromSql&lt;ST&gt;`.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`ToSql`]: ../../../serialize/trait.ToSql.html</span>
-    <span class="doccomment">/// [`FromSql`]: ../../../deserialize/trait.FromSql.html</span>
-    <span class="doccomment">/// [bound]: https://doc.rust-lang.org/std/collections/enum.Bound.html</span>
+    <span class="doccomment">/// [`ToSql`]: crate::serialize::ToSql</span>
+    <span class="doccomment">/// [`FromSql`]: crate::deserialize::FromSql</span>
+    <span class="doccomment">/// [bound]: std::collections::Bound</span>
     <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">Default</span>, <span class="ident">QueryId</span>, <span class="ident">SqlType</span>)]</span>
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Range</span><span class="op">&lt;</span><span class="ident">ST</span><span class="op">&gt;</span>(<span class="ident">ST</span>);
 
@@ -648,8 +685,8 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// - Any tuple which can be deserialized from each of the elements.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`ToSql`]: ../../../serialize/trait.ToSql.html</span>
-    <span class="doccomment">/// [`FromSql`]: ../../../deserialize/trait.FromSql.html</span>
+    <span class="doccomment">/// [`ToSql`]: crate::serialize::ToSql</span>
+    <span class="doccomment">/// [`FromSql`]: crate::deserialize::FromSql</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ### Caveats about serialization</span>
     <span class="doccomment">///</span>
@@ -673,7 +710,7 @@
     <span class="doccomment">/// You can implement `ToSql` for named composite types. See [`WriteTuple`]</span>
     <span class="doccomment">/// for details.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`WriteTuple`]: ../../../serialize/trait.WriteTuple.html</span>
+    <span class="doccomment">/// [`WriteTuple`]: super::super::super::serialize::WriteTuple</span>
     <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">Default</span>, <span class="ident">QueryId</span>, <span class="ident">SqlType</span>)]</span>
     <span class="attribute">#[<span class="ident">postgres</span>(<span class="ident">oid</span> <span class="op">=</span> <span class="string">&quot;2249&quot;</span>, <span class="ident">array_oid</span> <span class="op">=</span> <span class="string">&quot;2287&quot;</span>)]</span>
     <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">Record</span><span class="op">&lt;</span><span class="ident">ST</span><span class="op">&gt;</span>(<span class="ident">ST</span>);
@@ -698,8 +735,8 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// - [`uuid::Uuid`][Uuid]</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`ToSql`]: ../../../serialize/trait.ToSql.html</span>
-    <span class="doccomment">/// [`FromSql`]: ../../../deserialize/trait.FromSql.html</span>
+    <span class="doccomment">/// [`ToSql`]: crate::serialize::ToSql</span>
+    <span class="doccomment">/// [`FromSql`]: crate::deserialize::FromSql</span>
     <span class="doccomment">/// [Uuid]: https://docs.rs/uuid/*/uuid/struct.Uuid.html</span>
     <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>, <span class="ident">Default</span>, <span class="ident">QueryId</span>, <span class="ident">SqlType</span>)]</span>
     <span class="attribute">#[<span class="ident">postgres</span>(<span class="ident">oid</span> <span class="op">=</span> <span class="string">&quot;2950&quot;</span>, <span class="ident">array_oid</span> <span class="op">=</span> <span class="string">&quot;2951&quot;</span>)]</span>
@@ -741,9 +778,16 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// - [`serde_json::Value`]</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`ToSql`]: ../../../serialize/trait.ToSql.html</span>
-    <span class="doccomment">/// [`FromSql`]: ../../../deserialize/trait.FromSql.html</span>
-    <span class="doccomment">/// [`serde_json::Value`]: ../../../../serde_json/value/enum.Value.html</span>
+    <span class="doccomment">/// [`ToSql`]: crate::serialize::ToSql</span>
+    <span class="doccomment">/// [`FromSql`]: crate::deserialize::FromSql</span>
+    <span class="attribute">#[<span class="ident">cfg_attr</span>(
+        <span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;serde_json&quot;</span>,
+        <span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;[`serde_json::Value`]: serde_json::value::Value&quot;</span>
+    )]</span>
+    <span class="attribute">#[<span class="ident">cfg_attr</span>(
+        <span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;serde_json&quot;</span>),
+        <span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot;[`serde_json::Value`]: https://docs.rs/serde_json/1.0.64/serde_json/value/enum.Value.html&quot;</span>
+    )]</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Examples</span>
     <span class="doccomment">///</span>
@@ -799,9 +843,9 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// - [`Cents` (also aliased as `PgMoney`)][PgMoney]</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`ToSql`]: ../../../serialize/trait.ToSql.html</span>
-    <span class="doccomment">/// [`FromSql`]: ../../../deserialize/trait.FromSql.html</span>
-    <span class="doccomment">/// [PgMoney]: ../../data_types/struct.PgMoney.html</span>
+    <span class="doccomment">/// [`ToSql`]: crate::serialize::ToSql</span>
+    <span class="doccomment">/// [`FromSql`]: crate::deserialize::FromSql</span>
+    <span class="doccomment">/// [PgMoney]: crate::data_types::PgMoney</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Examples</span>
     <span class="doccomment">///</span>
@@ -847,8 +891,8 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// - `[u8; 6]`</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`ToSql`]: ../../../serialize/trait.ToSql.html</span>
-    <span class="doccomment">/// [`FromSql`]: ../../../deserialize/trait.FromSql.html</span>
+    <span class="doccomment">/// [`ToSql`]: crate::serialize::ToSql</span>
+    <span class="doccomment">/// [`FromSql`]: crate::deserialize::FromSql</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Examples</span>
     <span class="doccomment">///</span>
@@ -895,9 +939,13 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// - [`ipnetwork::IpNetwork`][IpNetwork]</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`ToSql`]: ../../../serialize/trait.ToSql.html</span>
-    <span class="doccomment">/// [`FromSql`]: ../../../deserialize/trait.FromSql.html</span>
-    <span class="doccomment">/// [IpNetwork]: ../../../../ipnetwork/enum.IpNetwork.html</span>
+    <span class="doccomment">/// [`ToSql`]: crate::serialize::ToSql</span>
+    <span class="doccomment">/// [`FromSql`]: crate::deserialize::FromSql</span>
+    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;ipnetwork&quot;</span>, <span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot; [IpNetwork]: ipnetwork::IpNetwork&quot;</span>)]</span>
+    <span class="attribute">#[<span class="ident">cfg_attr</span>(
+        <span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;ipnetwork&quot;</span>),
+        <span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot; [IpNetwork]: https://docs.rs/ipnetwork/*/ipnetwork/enum.IpNetwork.html&quot;</span>
+    )]</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Examples</span>
     <span class="doccomment">///</span>
@@ -948,9 +996,13 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// - [`ipnetwork::IpNetwork`][IpNetwork]</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`ToSql`]: ../../../serialize/trait.ToSql.html</span>
-    <span class="doccomment">/// [`FromSql`]: ../../../deserialize/trait.FromSql.html</span>
-    <span class="doccomment">/// [IpNetwork]: ../../../../ipnetwork/enum.IpNetwork.html</span>
+    <span class="doccomment">/// [`ToSql`]: crate::serialize::ToSql</span>
+    <span class="doccomment">/// [`FromSql`]: crate::deserialize::FromSql</span>
+    <span class="attribute">#[<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;ipnetwork&quot;</span>, <span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot; [IpNetwork]: ipnetwork::IpNetwork&quot;</span>)]</span>
+    <span class="attribute">#[<span class="ident">cfg_attr</span>(
+        <span class="ident">not</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;ipnetwork&quot;</span>),
+        <span class="ident">doc</span> <span class="op">=</span> <span class="string">&quot; [IpNetwork]: https://docs.rs/ipnetwork/*/ipnetwork/enum.IpNetwork.html&quot;</span>
+    )]</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Examples</span>
     <span class="doccomment">///</span>

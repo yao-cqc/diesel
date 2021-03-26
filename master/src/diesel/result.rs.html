@@ -414,10 +414,10 @@
     <span class="doccomment">/// does not treat 0 rows as an error. If you would like to allow either 0</span>
     <span class="doccomment">/// or 1 rows, call [`optional`] on the result.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`get_result`]: ../query_dsl/trait.RunQueryDsl.html#method.get_result</span>
-    <span class="doccomment">/// [`first`]: ../query_dsl/trait.RunQueryDsl.html#method.first</span>
-    <span class="doccomment">/// [`load`]: ../query_dsl/trait.RunQueryDsl.html#method.load</span>
-    <span class="doccomment">/// [`optional`]: trait.OptionalExtension.html#tymethod.optional</span>
+    <span class="doccomment">/// [`get_result`]: crate::query_dsl::RunQueryDsl::get_result()</span>
+    <span class="doccomment">/// [`first`]: crate::query_dsl::RunQueryDsl::first()</span>
+    <span class="doccomment">/// [`load`]: crate::query_dsl::RunQueryDsl::load()</span>
+    <span class="doccomment">/// [`optional`]: OptionalExtension::optional</span>
     <span class="ident">NotFound</span>,
 
     <span class="doccomment">/// The query could not be constructed</span>
@@ -573,7 +573,7 @@
 
 <span class="doccomment">/// Errors which can occur during [`Connection::establish`]</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [`Connection::establish`]: ../connection/trait.Connection.html#tymethod.establish</span>
+<span class="doccomment">/// [`Connection::establish`]: crate::connection::Connection::establish</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">PartialEq</span>)]</span>
 <span class="attribute">#[<span class="ident">non_exhaustive</span>]</span>
 <span class="kw">pub</span> <span class="kw">enum</span> <span class="ident">ConnectionError</span> {
@@ -605,7 +605,7 @@
 <span class="doccomment">/// is otherwise a direct mapping to `Result`.</span>
 <span class="kw">pub</span> <span class="kw">type</span> <span class="ident">ConnectionResult</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> <span class="op">=</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">ConnectionError</span><span class="op">&gt;</span>;
 
-<span class="doccomment">/// See the [method documentation](#tymethod.optional).</span>
+<span class="doccomment">/// See the [method documentation](OptionalExtension::optional).</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">OptionalExtension</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
     <span class="doccomment">/// Converts a `QueryResult&lt;T&gt;` into a `QueryResult&lt;Option&lt;T&gt;&gt;`.</span>
     <span class="doccomment">///</span>
@@ -613,8 +613,8 @@
     <span class="doccomment">/// row as an error (e.g. the return value of [`get_result`] or [`first`]). This method will</span>
     <span class="doccomment">/// handle that error, and give you back an `Option&lt;T&gt;` instead.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`get_result`]: ../query_dsl/trait.RunQueryDsl.html#method.get_result</span>
-    <span class="doccomment">/// [`first`]: ../query_dsl/trait.RunQueryDsl.html#method.first</span>
+    <span class="doccomment">/// [`get_result`]: crate::query_dsl::RunQueryDsl::get_result()</span>
+    <span class="doccomment">/// [`first`]: crate::query_dsl::RunQueryDsl::first()</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Example</span>
     <span class="doccomment">///</span>

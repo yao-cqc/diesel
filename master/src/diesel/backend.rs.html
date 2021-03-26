@@ -101,7 +101,7 @@
 <span class="doccomment">/// A database backend</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// This trait represents the concept of a backend (e.g. &quot;MySQL&quot; vs &quot;SQLite&quot;).</span>
-<span class="doccomment">/// It is separate from a [`Connection`](../connection/trait.Connection.html)</span>
+<span class="doccomment">/// It is separate from a [`Connection`](crate::connection::Connection)</span>
 <span class="doccomment">/// to that backend.</span>
 <span class="doccomment">/// One backend may have multiple concrete connection implementations.</span>
 <span class="doccomment">///</span>
@@ -132,7 +132,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// Most backends should use [`RawBytesBindCollector`].</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`RawBytesBindCollector`]: ../query_builder/bind_collector/struct.RawBytesBindCollector.html</span>
+    <span class="doccomment">/// [`RawBytesBindCollector`]: crate::query_builder::bind_collector::RawBytesBindCollector</span>
     <span class="kw">type</span> <span class="ident">BindCollector</span>: <span class="ident">BindCollector</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span>;
     <span class="doccomment">/// What byte order is used to transmit integers?</span>
     <span class="doccomment">///</span>
@@ -144,10 +144,10 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// This trait is separate from `Backend` to imitate `type RawValue&lt;&#39;a&gt;`. It</span>
 <span class="doccomment">/// should only be referenced directly by implementors. Users of this type</span>
-<span class="doccomment">/// should instead use the [`RawValue`](type.RawValue.html) helper type instead.</span>
+<span class="doccomment">/// should instead use the [`RawValue`] helper type instead.</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">HasRawValue</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
     <span class="doccomment">/// The actual type given to `FromSql`, with lifetimes applied. This type</span>
-    <span class="doccomment">/// should not be used directly. Use the [`RawValue`](type.RawValue.html)</span>
+    <span class="doccomment">/// should not be used directly. Use the [`RawValue`]</span>
     <span class="doccomment">/// helper type instead.</span>
     <span class="kw">type</span> <span class="ident">RawValue</span>;
 }

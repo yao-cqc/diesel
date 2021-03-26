@@ -318,7 +318,6 @@
 <span id="315">315</span>
 <span id="316">316</span>
 <span id="317">317</span>
-<span id="318">318</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">marker</span>::<span class="ident">PhantomData</span>;
 
@@ -339,7 +338,7 @@
 <span class="doccomment">/// rather than by index. This means that you cannot deserialize this query into</span>
 <span class="doccomment">/// a tuple, and any structs used must implement `QueryableByName`.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// See [`sql_query`](../fn.sql_query.html) for examples.</span>
+<span class="doccomment">/// See [`sql_query`](crate::sql_query()) for examples.</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">SqlQuery</span><span class="op">&lt;</span><span class="ident">Inner</span> <span class="op">=</span> ()<span class="op">&gt;</span> {
     <span class="ident">inner</span>: <span class="ident">Inner</span>,
     <span class="ident">query</span>: <span class="ident">String</span>,
@@ -448,7 +447,6 @@
 <span class="attribute">#[<span class="ident">must_use</span> <span class="op">=</span> <span class="string">&quot;Queries are only executed when calling `load`, `get_result` or similar.&quot;</span>]</span>
 <span class="doccomment">/// Returned by the [`SqlQuery::bind()`] method when binding a value to a fragment of SQL.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [`SqlQuery::bind()`]: ./struct.SqlQuery.html#method.bind</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">UncheckedBind</span><span class="op">&lt;</span><span class="ident">Query</span>, <span class="ident">Value</span>, <span class="ident">ST</span><span class="op">&gt;</span> {
     <span class="ident">query</span>: <span class="ident">Query</span>,
     <span class="ident">value</span>: <span class="ident">Value</span>,
@@ -482,7 +480,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// This function is intended for use when you want to write the entire query</span>
     <span class="doccomment">/// using raw SQL. If you only need a small bit of raw SQL in your query, use</span>
-    <span class="doccomment">/// [`sql`](./dsl/fn.sql.html) instead.</span>
+    <span class="doccomment">/// [`sql`](dsl::sql()) instead.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// Query parameters can be bound into the raw query using [`SqlQuery::bind()`].</span>
     <span class="doccomment">///</span>
@@ -530,7 +528,7 @@
     <span class="doccomment">/// assert_eq!(Ok(expected_users), users);</span>
     <span class="doccomment">/// # }</span>
     <span class="doccomment">/// ```</span>
-    <span class="doccomment">/// [`SqlQuery::bind()`]: query_builder/struct.SqlQuery.html#method.bind</span>
+    <span class="doccomment">/// [`SqlQuery::bind()`]: query_builder::SqlQuery::bind()</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sql</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="self">self</span>, <span class="ident">sql</span>: <span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SqlQuery</span><span class="op">&lt;</span><span class="self">Self</span><span class="op">&gt;</span> {
         <span class="ident">SqlQuery</span>::<span class="ident">new</span>(<span class="self">self</span>, <span class="ident">sql</span>.<span class="ident">into</span>())
     }
@@ -568,7 +566,7 @@
 <span class="attribute">#[<span class="ident">must_use</span> <span class="op">=</span> <span class="string">&quot;Queries are only executed when calling `load`, `get_result`, or similar.&quot;</span>]</span>
 <span class="doccomment">/// See [`SqlQuery::into_boxed`].</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [`SqlQuery::into_boxed`]: ./struct.SqlQuery.html#method.into_boxed</span>
+<span class="doccomment">/// [`SqlQuery::into_boxed`]: SqlQuery::into_boxed()</span>
 <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">missing_debug_implementations</span>)]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">BoxedSqlQuery</span><span class="op">&lt;</span><span class="lifetime">&#39;f</span>, <span class="ident">DB</span>: <span class="ident">Backend</span>, <span class="ident">Query</span><span class="op">&gt;</span> {
     <span class="ident">query</span>: <span class="ident">Query</span>,
@@ -587,7 +585,7 @@
 
     <span class="doccomment">/// See [`SqlQuery::bind`].</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`SqlQuery::bind`]: ./struct.SqlQuery.html#method.bind</span>
+    <span class="doccomment">/// [`SqlQuery::bind`]: SqlQuery::bind()</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">bind</span><span class="op">&lt;</span><span class="ident">BindSt</span>, <span class="ident">Value</span><span class="op">&gt;</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">b</span>: <span class="ident">Value</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span>
     <span class="kw">where</span>
         <span class="ident">DB</span>: <span class="ident">HasSqlType</span><span class="op">&lt;</span><span class="ident">BindSt</span><span class="op">&gt;</span>,
@@ -600,7 +598,7 @@
 
     <span class="doccomment">/// See [`SqlQuery::sql`].</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`SqlQuery::sql`]: ./struct.SqlQuery.html#method.sql</span>
+    <span class="doccomment">/// [`SqlQuery::sql`]: SqlQuery::sql()</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sql</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">AsRef</span><span class="op">&lt;</span><span class="ident">str</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="kw-2">mut</span> <span class="self">self</span>, <span class="ident">sql</span>: <span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="self">self</span>.<span class="ident">sql</span> <span class="op">+</span><span class="op">=</span> <span class="ident">sql</span>.<span class="ident">as_ref</span>();
         <span class="self">self</span>

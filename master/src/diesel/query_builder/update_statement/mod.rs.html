@@ -322,7 +322,7 @@
 
     <span class="doccomment">/// Provides the `SET` clause of the `UPDATE` statement.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// See [`update`](../fn.update.html) for usage examples, or [the update</span>
+    <span class="doccomment">/// See [`update`](crate::update()) for usage examples, or [the update</span>
     <span class="doccomment">/// guide](https://diesel.rs/guides/all-about-updates/) for a more exhaustive</span>
     <span class="doccomment">/// set of examples.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">set</span><span class="op">&lt;</span><span class="ident">V</span><span class="op">&gt;</span>(<span class="self">self</span>, <span class="ident">values</span>: <span class="ident">V</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">UpdateStatement</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">U</span>, <span class="ident">V</span>::<span class="ident">Changeset</span><span class="op">&gt;</span>
@@ -344,7 +344,7 @@
 <span class="attribute">#[<span class="ident">must_use</span> <span class="op">=</span> <span class="string">&quot;Queries are only executed when calling `load`, `get_result` or similar.&quot;</span>]</span>
 <span class="doccomment">/// Represents a complete `UPDATE` statement.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// See [`update`](../fn.update.html) for usage examples, or [the update</span>
+<span class="doccomment">/// See [`update`](crate::update()) for usage examples, or [the update</span>
 <span class="doccomment">/// guide](https://diesel.rs/guides/all-about-updates/) for a more exhaustive</span>
 <span class="doccomment">/// set of examples.</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">UpdateStatement</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">U</span>, <span class="ident">V</span> <span class="op">=</span> <span class="ident">SetNotCalled</span>, <span class="ident">Ret</span> <span class="op">=</span> <span class="ident">NoReturningClause</span><span class="op">&gt;</span> {

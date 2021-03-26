@@ -611,7 +611,7 @@
 <span class="doccomment">/// Passing a type which implements `Identifiable` is the same as passing</span>
 <span class="doccomment">/// `some_table.find(some_struct.id())`.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [`filter`]: query_builder/struct.UpdateStatement.html#method.filter</span>
+<span class="doccomment">/// [`filter`]: crate::query_builder::UpdateStatement::filter()</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// # Examples</span>
 <span class="doccomment">///</span>
@@ -637,7 +637,7 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// To update multiple columns, give [`set`] a tuple argument:</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [`set`]: query_builder/struct.UpdateStatement.html#method.set</span>
+<span class="doccomment">/// [`set`]: crate::query_builder::UpdateStatement::set()</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// ```rust</span>
 <span class="doccomment">/// # include!(&quot;../doctest_setup.rs&quot;);</span>
@@ -681,7 +681,7 @@
 <span class="doccomment">/// This scope can be narrowed by calling [`filter`]</span>
 <span class="doccomment">/// on the table before it is passed in.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [`filter`]: query_builder/struct.DeleteStatement.html#method.filter</span>
+<span class="doccomment">/// [`filter`]: crate::query_builder::DeleteStatement::filter()</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// # Examples</span>
 <span class="doccomment">///</span>
@@ -733,14 +733,14 @@
 <span class="doccomment">/// You may add data by calling [`values()`] or [`default_values()`]</span>
 <span class="doccomment">/// as shown in the examples.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [`values()`]: query_builder/struct.IncompleteInsertStatement.html#method.values</span>
-<span class="doccomment">/// [`default_values()`]: query_builder/struct.IncompleteInsertStatement.html#method.default_values</span>
+<span class="doccomment">/// [`values()`]: crate::query_builder::IncompleteInsertStatement::values()</span>
+<span class="doccomment">/// [`default_values()`]: crate::query_builder::IncompleteInsertStatement::default_values()</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// Backends that support the `RETURNING` clause, such as PostgreSQL,</span>
 <span class="doccomment">/// can return the inserted rows by calling [`.get_results`] instead of [`.execute`].</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [`.get_results`]: query_dsl/trait.RunQueryDsl.html#method.get_results</span>
-<span class="doccomment">/// [`.execute`]: query_dsl/trait.RunQueryDsl.html#tymethod.execute</span>
+<span class="doccomment">/// [`.get_results`]: crate::query_dsl::RunQueryDsl::get_results()</span>
+<span class="doccomment">/// [`.execute`]: crate::query_dsl::RunQueryDsl::execute</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// # Examples</span>
 <span class="doccomment">///</span>
@@ -942,8 +942,8 @@
 <span class="doccomment">/// (See also [`SelectStatement::insert_into`], which generally</span>
 <span class="doccomment">/// reads better for select statements)</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [`SelectStatement::insert_into`]: prelude/trait.Insertable.html#method.insert_into</span>
-<span class="doccomment">/// [`.into_columns`]: query_builder/struct.InsertStatement.html#method.into_columns</span>
+<span class="doccomment">/// [`SelectStatement::insert_into`]: crate::prelude::Insertable::insert_into()</span>
+<span class="doccomment">/// [`.into_columns`]: crate::query_builder::InsertStatement::into_columns()</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// ```rust</span>
 <span class="doccomment">/// # include!(&quot;../doctest_setup.rs&quot;);</span>
@@ -1008,7 +1008,7 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// With PostgreSQL, similar functionality is provided by [`on_conflict_do_nothing`].</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [`on_conflict_do_nothing`]: query_builder/insert_statement/struct.InsertStatement.html#method.on_conflict_do_nothing</span>
+<span class="doccomment">/// [`on_conflict_do_nothing`]: crate::query_builder::InsertStatement::on_conflict_do_nothing()</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// # Example</span>
 <span class="doccomment">///</span>
@@ -1111,7 +1111,7 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// This function is intended for use when you want to write the entire query</span>
 <span class="doccomment">/// using raw SQL. If you only need a small bit of raw SQL in your query, use</span>
-<span class="doccomment">/// [`sql`](./dsl/fn.sql.html) instead.</span>
+<span class="doccomment">/// [`sql`](crate::dsl::sql()) instead.</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// Query parameters can be bound into the raw query using [`SqlQuery::bind()`].</span>
 <span class="doccomment">///</span>
@@ -1180,7 +1180,7 @@
 <span class="doccomment">/// #     Ok(())</span>
 <span class="doccomment">/// # }</span>
 <span class="doccomment">/// ```</span>
-<span class="doccomment">/// [`SqlQuery::bind()`]: query_builder/struct.SqlQuery.html#method.bind</span>
+<span class="doccomment">/// [`SqlQuery::bind()`]: crate::query_builder::SqlQuery::bind()</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">sql_query</span><span class="op">&lt;</span><span class="ident">T</span>: <span class="ident">Into</span><span class="op">&lt;</span><span class="ident">String</span><span class="op">&gt;</span><span class="op">&gt;</span>(<span class="ident">query</span>: <span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">SqlQuery</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
     <span class="ident">SqlQuery</span>::<span class="ident">new</span>((), <span class="ident">query</span>.<span class="ident">into</span>())
 }

@@ -656,9 +656,9 @@
 <span class="doccomment">/// The provided methods [`values`] and [`default_values`] will insert</span>
 <span class="doccomment">/// data into the targeted table.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [`insert_into`]: ../fn.insert_into.html</span>
-<span class="doccomment">/// [`values`]: #method.values</span>
-<span class="doccomment">/// [`default_values`]: #method.default_values</span>
+<span class="doccomment">/// [`insert_into`]: crate::insert_into()</span>
+<span class="doccomment">/// [`values`]: IncompleteInsertStatement::values()</span>
+<span class="doccomment">/// [`default_values`]: IncompleteInsertStatement::default_values()</span>
 <span class="attribute">#[<span class="ident">derive</span>(<span class="ident">Debug</span>, <span class="ident">Clone</span>, <span class="ident">Copy</span>)]</span>
 <span class="attribute">#[<span class="ident">must_use</span> <span class="op">=</span> <span class="string">&quot;Queries are only executed when calling `load`, `get_result` or similar.&quot;</span>]</span>
 <span class="kw">pub</span> <span class="kw">struct</span> <span class="ident">IncompleteInsertStatement</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">Op</span><span class="op">&gt;</span> {
@@ -722,7 +722,7 @@
     <span class="doccomment">/// &quot;overflow evaluating requirement&quot; as a result of calling this method,</span>
     <span class="doccomment">/// you may need an `&amp;` in front of the argument to this method.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`insert_into`]: ../fn.insert_into.html</span>
+    <span class="doccomment">/// [`insert_into`]: crate::insert_into()</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">values</span><span class="op">&lt;</span><span class="ident">U</span><span class="op">&gt;</span>(<span class="self">self</span>, <span class="ident">records</span>: <span class="ident">U</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">InsertStatement</span><span class="op">&lt;</span><span class="ident">T</span>, <span class="ident">U</span>::<span class="ident">Values</span>, <span class="ident">Op</span><span class="op">&gt;</span>
     <span class="kw">where</span>
         <span class="ident">U</span>: <span class="ident">Insertable</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>,
@@ -780,7 +780,7 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// See the documentation for [`insert_into`] for usage examples.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`insert_into`]: ../fn.insert_into.html</span>
+    <span class="doccomment">/// [`insert_into`]: crate::insert_into()</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">into_columns</span><span class="op">&lt;</span><span class="ident">C2</span><span class="op">&gt;</span>(
         <span class="self">self</span>,
         <span class="ident">columns</span>: <span class="ident">C2</span>,

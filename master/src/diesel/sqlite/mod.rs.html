@@ -58,7 +58,7 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// This trait is to be used in conjunction with the `sql_function!`</span>
 <span class="doccomment">/// macro for defining a custom SQLite aggregate function. See</span>
-<span class="doccomment">/// the documentation [there](../prelude/macro.sql_function.html) for details.</span>
+<span class="doccomment">/// the documentation [there](super::prelude::sql_function!) for details.</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">SqliteAggregateFunction</span><span class="op">&lt;</span><span class="ident">Args</span><span class="op">&gt;</span>: <span class="ident">Default</span> {
     <span class="doccomment">/// The result type of the SQLite aggregate function</span>
     <span class="kw">type</span> <span class="ident">Output</span>;

@@ -1418,8 +1418,6 @@
 <span id="1415">1415</span>
 <span id="1416">1416</span>
 <span id="1417">1417</span>
-<span id="1418">1418</span>
-<span id="1419">1419</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! Traits that construct SELECT statements</span>
 <span class="doccomment">//!</span>
@@ -1431,10 +1429,8 @@
 <span class="doccomment">//!</span>
 <span class="doccomment">//! See also [`expression_methods`][expression_methods] and [`dsl`][dsl].</span>
 <span class="doccomment">//!</span>
-<span class="doccomment">//! [expression_methods]: ../expression_methods/index.html</span>
-<span class="doccomment">//! [dsl]: ../dsl/index.html</span>
-<span class="doccomment">//! [`QueryDsl`]: trait.QueryDsl.html</span>
-<span class="doccomment">//! [`RunQueryDsl`]: trait.RunQueryDsl.html</span>
+<span class="doccomment">//! [expression_methods]: super::expression_methods</span>
+<span class="doccomment">//! [dsl]: super::dsl</span>
 
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">backend</span>::<span class="ident">Backend</span>;
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">connection</span>::<span class="ident">Connection</span>;
@@ -1747,8 +1743,8 @@
     <span class="doccomment">/// table directly.  Otherwise you will need to use [`.on`] to specify the `ON`</span>
     <span class="doccomment">/// clause.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`joinable!`]: ../macro.joinable.html</span>
-    <span class="doccomment">/// [`.on`]: trait.JoinOnDsl.html#method.on</span>
+    <span class="doccomment">/// [`joinable!`]: crate::joinable!</span>
+    <span class="doccomment">/// [`.on`]: JoinOnDsl::on()</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// You can join to as many tables as you&#39;d like in a query, with the</span>
     <span class="doccomment">/// restriction that no table can appear in the query more than once. The reason</span>
@@ -1783,8 +1779,8 @@
     <span class="doccomment">///     INNER JOIN comments ON comments.user_id = users.id</span>
     <span class="doccomment">/// ```</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [associations]: ../associations/index.html</span>
-    <span class="doccomment">/// [`allow_tables_to_appear_in_same_query!`]: ../macro.allow_tables_to_appear_in_same_query.html</span>
+    <span class="doccomment">/// [associations]: crate::associations</span>
+    <span class="doccomment">/// [`allow_tables_to_appear_in_same_query!`]: crate::allow_tables_to_appear_in_same_query!</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Examples</span>
     <span class="doccomment">///</span>
@@ -1916,7 +1912,7 @@
     <span class="doccomment">/// Behaves similarly to [`inner_join`], but will produce a left join</span>
     <span class="doccomment">/// instead. See [`inner_join`] for usage examples.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`inner_join`]: #method.inner_join</span>
+    <span class="doccomment">/// [`inner_join`]: QueryDsl::inner_join()</span>
     <span class="kw">fn</span> <span class="ident">left_outer_join</span><span class="op">&lt;</span><span class="ident">Rhs</span><span class="op">&gt;</span>(<span class="self">self</span>, <span class="ident">rhs</span>: <span class="ident">Rhs</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">LeftJoin</span><span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">Rhs</span><span class="op">&gt;</span>
     <span class="kw">where</span>
         <span class="self">Self</span>: <span class="ident">JoinWithImplicitOnClause</span><span class="op">&lt;</span><span class="ident">Rhs</span>, <span class="ident">joins</span>::<span class="ident">LeftOuter</span><span class="op">&gt;</span>,
@@ -1926,7 +1922,7 @@
 
     <span class="doccomment">/// Alias for [`left_outer_join`].</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`left_outer_join`]: #method.left_outer_join</span>
+    <span class="doccomment">/// [`left_outer_join`]: QueryDsl::left_outer_join()</span>
     <span class="kw">fn</span> <span class="ident">left_join</span><span class="op">&lt;</span><span class="ident">Rhs</span><span class="op">&gt;</span>(<span class="self">self</span>, <span class="ident">rhs</span>: <span class="ident">Rhs</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">LeftJoin</span><span class="op">&lt;</span><span class="self">Self</span>, <span class="ident">Rhs</span><span class="op">&gt;</span>
     <span class="kw">where</span>
         <span class="self">Self</span>: <span class="ident">JoinWithImplicitOnClause</span><span class="op">&lt;</span><span class="ident">Rhs</span>, <span class="ident">joins</span>::<span class="ident">LeftOuter</span><span class="op">&gt;</span>,
@@ -2038,14 +2034,14 @@
     <span class="doccomment">///</span>
     <span class="doccomment">/// If there was already an order clause, it will be overridden. See</span>
     <span class="doccomment">/// also:</span>
-    <span class="doccomment">/// [`.desc()`](../expression_methods/trait.ExpressionMethods.html#method.desc)</span>
+    <span class="doccomment">/// [`.desc()`](crate::expression_methods::ExpressionMethods::desc())</span>
     <span class="doccomment">/// and</span>
-    <span class="doccomment">/// [`.asc()`](../expression_methods/trait.ExpressionMethods.html#method.asc)</span>
+    <span class="doccomment">/// [`.asc()`](crate::expression_methods::ExpressionMethods::asc())</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// Ordering by multiple columns can be achieved by passing a tuple of those</span>
     <span class="doccomment">/// columns.</span>
     <span class="doccomment">/// To construct an order clause of an unknown number of columns,</span>
-    <span class="doccomment">/// see [`QueryDsl::then_order_by`](#method.then_order_by)</span>
+    <span class="doccomment">/// see [`QueryDsl::then_order_by`](QueryDsl::then_order_by())</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Examples</span>
     <span class="doccomment">///</span>
@@ -2275,7 +2271,7 @@
     <span class="doccomment">/// For group by clauses containing columns from more than one table it</span>
     <span class="doccomment">/// is required to call [`allow_columns_to_appear_in_same_group_by_clause!`]</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`allow_columns_to_appear_in_same_group_by_clause!`]: ../macro.allow_columns_to_appear_in_same_group_by_clause.html</span>
+    <span class="doccomment">/// [`allow_columns_to_appear_in_same_group_by_clause!`]: crate::allow_columns_to_appear_in_same_group_by_clause!</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Examples</span>
     <span class="doccomment">/// ```rust</span>
@@ -2468,8 +2464,8 @@
     <span class="doccomment">/// but you might want to hide the return type or have it conditionally change.</span>
     <span class="doccomment">/// Boxing can achieve both.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [iterator]: https://doc.rust-lang.org/stable/std/iter/trait.Iterator.html</span>
-    <span class="doccomment">/// [helper_types]: ../helper_types/index.html</span>
+    <span class="doccomment">/// [iterator]: std::iter::Iterator</span>
+    <span class="doccomment">/// [helper_types]: crate::helper_types</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// ### Example</span>
     <span class="doccomment">///</span>
@@ -2586,11 +2582,11 @@
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">RunQueryDsl</span><span class="op">&lt;</span><span class="ident">Conn</span><span class="op">&gt;</span>: <span class="ident">Sized</span> {
     <span class="doccomment">/// Executes the given command, returning the number of rows affected.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// `execute` is usually used in conjunction with [`insert_into`](../fn.insert_into.html),</span>
-    <span class="doccomment">/// [`update`](../fn.update.html) and [`delete`](../fn.delete.html) where the number of</span>
+    <span class="doccomment">/// `execute` is usually used in conjunction with [`insert_into`](crate::insert_into()),</span>
+    <span class="doccomment">/// [`update`](crate::update()) and [`delete`](crate::delete()) where the number of</span>
     <span class="doccomment">/// affected rows is often enough information.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// When asking the database to return data from a query, [`load`](#method.load) should</span>
+    <span class="doccomment">/// When asking the database to return data from a query, [`load`](crate::query_dsl::RunQueryDsl::load()) should</span>
     <span class="doccomment">/// probably be used instead.</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Example</span>
@@ -2639,10 +2635,10 @@
     <span class="doccomment">/// For insert, update, and delete operations where only a count of affected is needed,</span>
     <span class="doccomment">/// [`execute`] should be used instead.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`Queryable`]: ../deserialize/trait.Queryable.html</span>
-    <span class="doccomment">/// [`QueryableByName`]: ../deserialize/trait.QueryableByName.html</span>
-    <span class="doccomment">/// [`execute`]: fn.execute.html</span>
-    <span class="doccomment">/// [`sql_query`]: ../fn.sql_query.html</span>
+    <span class="doccomment">/// [`Queryable`]: crate::deserialize::Queryable</span>
+    <span class="doccomment">/// [`QueryableByName`]: crate::deserialize::QueryableByName</span>
+    <span class="doccomment">/// [`execute`]: crate::query_dsl::RunQueryDsl::execute()</span>
+    <span class="doccomment">/// [`sql_query`]: crate::sql_query()</span>
     <span class="doccomment">///</span>
     <span class="doccomment">/// # Examples</span>
     <span class="doccomment">///</span>
@@ -2783,7 +2779,7 @@
     <span class="doccomment">/// This method is an alias for [`load`], but with a name that makes more</span>
     <span class="doccomment">/// sense for insert, update, and delete statements.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`load`]: #method.load</span>
+    <span class="doccomment">/// [`load`]: crate::query_dsl::RunQueryDsl::load()</span>
     <span class="kw">fn</span> <span class="ident">get_results</span><span class="op">&lt;</span><span class="ident">U</span><span class="op">&gt;</span>(<span class="self">self</span>, <span class="ident">conn</span>: <span class="kw-2">&amp;</span><span class="ident">Conn</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">QueryResult</span><span class="op">&lt;</span><span class="ident">Vec</span><span class="op">&lt;</span><span class="ident">U</span><span class="op">&gt;</span><span class="op">&gt;</span>
     <span class="kw">where</span>
         <span class="self">Self</span>: <span class="ident">LoadQuery</span><span class="op">&lt;</span><span class="ident">Conn</span>, <span class="ident">U</span><span class="op">&gt;</span>,

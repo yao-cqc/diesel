@@ -28,19 +28,19 @@
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">expression</span>::<span class="ident">grouped</span>::<span class="ident">Grouped</span>;
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">expression</span>::<span class="ident">operators</span>;
 
-<span class="doccomment">/// The return type of [`not(expr)`](../dsl/fn.not.html)</span>
+<span class="doccomment">/// The return type of [`not(expr)`](crate::dsl::not())</span>
 <span class="kw">pub</span> <span class="kw">type</span> <span class="ident">not</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span> <span class="op">=</span> <span class="ident">operators</span>::<span class="ident">Not</span><span class="op">&lt;</span><span class="ident">Grouped</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span><span class="op">&gt;</span>;
 
-<span class="doccomment">/// The return type of [`max(expr)`](../dsl/fn.max.html)</span>
+<span class="doccomment">/// The return type of [`max(expr)`](crate::dsl::max())</span>
 <span class="kw">pub</span> <span class="kw">type</span> <span class="ident">max</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span> <span class="op">=</span> <span class="kw">super</span>::<span class="ident">aggregate_ordering</span>::<span class="ident">max</span>::<span class="ident">HelperType</span><span class="op">&lt;</span><span class="ident">SqlTypeOf</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>, <span class="ident">Expr</span><span class="op">&gt;</span>;
 
-<span class="doccomment">/// The return type of [`min(expr)`](../dsl/fn.min.html)</span>
+<span class="doccomment">/// The return type of [`min(expr)`](crate::dsl::min())</span>
 <span class="kw">pub</span> <span class="kw">type</span> <span class="ident">min</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span> <span class="op">=</span> <span class="kw">super</span>::<span class="ident">aggregate_ordering</span>::<span class="ident">min</span>::<span class="ident">HelperType</span><span class="op">&lt;</span><span class="ident">SqlTypeOf</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>, <span class="ident">Expr</span><span class="op">&gt;</span>;
 
-<span class="doccomment">/// The return type of [`sum(expr)`](../dsl/fn.sum.html)</span>
+<span class="doccomment">/// The return type of [`sum(expr)`](crate::dsl::sum())</span>
 <span class="kw">pub</span> <span class="kw">type</span> <span class="ident">sum</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span> <span class="op">=</span> <span class="kw">super</span>::<span class="ident">aggregate_folding</span>::<span class="ident">sum</span>::<span class="ident">HelperType</span><span class="op">&lt;</span><span class="ident">SqlTypeOf</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>, <span class="ident">Expr</span><span class="op">&gt;</span>;
 
-<span class="doccomment">/// The return type of [`avg(expr)`](../dsl/fn.avg.html)</span>
+<span class="doccomment">/// The return type of [`avg(expr)`](crate::dsl::avg())</span>
 <span class="kw">pub</span> <span class="kw">type</span> <span class="ident">avg</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span> <span class="op">=</span> <span class="kw">super</span>::<span class="ident">aggregate_folding</span>::<span class="ident">avg</span>::<span class="ident">HelperType</span><span class="op">&lt;</span><span class="ident">SqlTypeOf</span><span class="op">&lt;</span><span class="ident">Expr</span><span class="op">&gt;</span>, <span class="ident">Expr</span><span class="op">&gt;</span>;
 </pre></div>
 </section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../../../../" data-current-crate="diesel"></div>

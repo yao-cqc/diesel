@@ -44,7 +44,7 @@
 <span class="doccomment">/// provided by [`QueryDsl`]. However, you may need a where clause on this trait</span>
 <span class="doccomment">/// to call `select` from generic code.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [`QueryDsl`]: ../trait.QueryDsl.html</span>
+<span class="doccomment">/// [`QueryDsl`]: crate::QueryDsl</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">SelectDsl</span><span class="op">&lt;</span><span class="ident">Selection</span>: <span class="ident">Expression</span><span class="op">&gt;</span> {
     <span class="comment">// FIXME: Once we&#39;ve refactored the `impl Expression` on `SelectStatement`</span>
     <span class="comment">// to not conditionally be `sql_types::Array`, it is probably worthwhile to</span>

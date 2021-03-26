@@ -70,12 +70,12 @@
 <span class="doccomment">/// provided by [`QueryDsl`]. However, you may need a where clause on this trait</span>
 <span class="doccomment">/// to call `for_update` from generic code.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [`QueryDsl`]: ../trait.QueryDsl.html</span>
+<span class="doccomment">/// [`QueryDsl`]: crate::QueryDsl</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">LockingDsl</span><span class="op">&lt;</span><span class="ident">Lock</span><span class="op">&gt;</span> {
     <span class="doccomment">/// The type returned by `set_lock`. See [`dsl::ForUpdate`] and friends for</span>
     <span class="doccomment">/// convenient access to this type.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`dsl::ForUpdate`]: ../../dsl/type.ForUpdate.html</span>
+    <span class="doccomment">/// [`dsl::ForUpdate`]: crate::dsl::ForUpdate</span>
     <span class="kw">type</span> <span class="ident">Output</span>;
 
     <span class="doccomment">/// See the trait level documentation</span>
@@ -101,12 +101,12 @@
 <span class="doccomment">/// provided by [`QueryDsl`]. However, you may need a where clause on this trait</span>
 <span class="doccomment">/// to call `skip_locked` from generic code.</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// [`QueryDsl`]: ../trait.QueryDsl.html</span>
+<span class="doccomment">/// [`QueryDsl`]: crate::QueryDsl</span>
 <span class="kw">pub</span> <span class="kw">trait</span> <span class="ident">ModifyLockDsl</span><span class="op">&lt;</span><span class="ident">Modifier</span><span class="op">&gt;</span> {
     <span class="doccomment">/// The type returned by `modify_lock`. See [`dsl::SkipLocked`] and friends</span>
     <span class="doccomment">/// for convenient access to this type.</span>
     <span class="doccomment">///</span>
-    <span class="doccomment">/// [`dsl::SkipLocked`]: ../../dsl/type.SkipLocked.html</span>
+    <span class="doccomment">/// [`dsl::SkipLocked`]: crate::dsl::SkipLocked</span>
     <span class="kw">type</span> <span class="ident">Output</span>;
 
     <span class="doccomment">/// See the trait level documentation</span>
