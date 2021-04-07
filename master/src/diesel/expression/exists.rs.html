@@ -93,10 +93,12 @@
 <span id="90">90</span>
 <span id="91">91</span>
 <span id="92">92</span>
+<span id="93">93</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">backend</span>::<span class="ident">Backend</span>;
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">expression</span>::<span class="ident">subselect</span>::<span class="ident">Subselect</span>;
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">expression</span>::{<span class="ident">AppearsOnTable</span>, <span class="ident">Expression</span>, <span class="ident">SelectableExpression</span>, <span class="ident">ValidGrouping</span>};
+<span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">helper_types</span>::<span class="ident">exists</span>;
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">query_builder</span>::<span class="kw-2">*</span>;
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">result</span>::<span class="ident">QueryResult</span>;
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">sql_types</span>::<span class="ident">Bool</span>;
@@ -124,7 +126,7 @@
 <span class="doccomment">/// assert_eq!(Ok(false), jim_exists);</span>
 <span class="doccomment">/// # }</span>
 <span class="doccomment">/// ```</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">exists</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(<span class="ident">query</span>: <span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">Exists</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
+<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">exists</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span>(<span class="ident">query</span>: <span class="ident">T</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">exists</span><span class="op">&lt;</span><span class="ident">T</span><span class="op">&gt;</span> {
     <span class="ident">Exists</span>(<span class="ident">Subselect</span>::<span class="ident">new</span>(<span class="ident">query</span>))
 }
 
