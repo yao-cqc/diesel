@@ -276,12 +276,6 @@
                     (#(#<span class="ident">ref_field_assign</span>,)<span class="kw-2">*</span>).<span class="ident">values</span>()
                 }
             }
-
-            <span class="kw">impl</span> #<span class="ident">impl_generics</span> <span class="ident">UndecoratedInsertRecord</span><span class="op">&lt;</span>#<span class="ident">table_name</span>::<span class="ident">table</span><span class="op">&gt;</span>
-                <span class="kw">for</span> #<span class="ident">struct_name</span> #<span class="ident">ty_generics</span>
-            #<span class="ident">where_clause</span>
-            {
-            }
         }
     } <span class="kw">else</span> {
         <span class="macro">quote</span><span class="macro">!</span> {}
@@ -295,6 +289,12 @@
         #<span class="ident">insert_owned</span>
 
         #<span class="ident">insert_borrowed</span>
+
+        <span class="kw">impl</span> #<span class="ident">impl_generics</span> <span class="ident">UndecoratedInsertRecord</span><span class="op">&lt;</span>#<span class="ident">table_name</span>::<span class="ident">table</span><span class="op">&gt;</span>
+                <span class="kw">for</span> #<span class="ident">struct_name</span> #<span class="ident">ty_generics</span>
+            #<span class="ident">where_clause</span>
+        {
+        }
     }))
 }
 
