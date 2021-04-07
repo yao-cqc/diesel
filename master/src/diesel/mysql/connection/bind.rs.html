@@ -1583,6 +1583,21 @@
 <span id="1580">1580</span>
 <span id="1581">1581</span>
 <span id="1582">1582</span>
+<span id="1583">1583</span>
+<span id="1584">1584</span>
+<span id="1585">1585</span>
+<span id="1586">1586</span>
+<span id="1587">1587</span>
+<span id="1588">1588</span>
+<span id="1589">1589</span>
+<span id="1590">1590</span>
+<span id="1591">1591</span>
+<span id="1592">1592</span>
+<span id="1593">1593</span>
+<span id="1594">1594</span>
+<span id="1595">1595</span>
+<span id="1596">1596</span>
+<span id="1597">1597</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="kw">use</span> <span class="ident">mysqlclient_sys</span> <span class="kw">as</span> <span class="ident">ffi</span>;
 <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">mem</span>;
@@ -1986,46 +2001,46 @@
 
 <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span><span class="ident">MysqlType</span><span class="op">&gt;</span> <span class="kw">for</span> (<span class="ident">ffi</span>::<span class="ident">enum_field_types</span>, <span class="ident">Flags</span>) {
     <span class="kw">fn</span> <span class="ident">from</span>(<span class="ident">tpe</span>: <span class="ident">MysqlType</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
-        <span class="kw">use</span> <span class="self">self</span>::<span class="ident">ffi</span>::<span class="ident">enum_field_types</span>::<span class="kw-2">*</span>;
+        <span class="kw">use</span> <span class="self">self</span>::<span class="ident">ffi</span>::<span class="ident">enum_field_types</span>;
         <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">flags</span> <span class="op">=</span> <span class="ident">Flags</span>::<span class="ident">empty</span>();
         <span class="kw">let</span> <span class="ident">tpe</span> <span class="op">=</span> <span class="kw">match</span> <span class="ident">tpe</span> {
-            <span class="ident">MysqlType</span>::<span class="ident">Tiny</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MYSQL_TYPE_TINY</span>,
-            <span class="ident">MysqlType</span>::<span class="ident">Short</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MYSQL_TYPE_SHORT</span>,
-            <span class="ident">MysqlType</span>::<span class="ident">Long</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MYSQL_TYPE_LONG</span>,
-            <span class="ident">MysqlType</span>::<span class="ident">LongLong</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MYSQL_TYPE_LONGLONG</span>,
-            <span class="ident">MysqlType</span>::<span class="ident">Float</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MYSQL_TYPE_FLOAT</span>,
-            <span class="ident">MysqlType</span>::<span class="ident">Double</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MYSQL_TYPE_DOUBLE</span>,
-            <span class="ident">MysqlType</span>::<span class="ident">Time</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MYSQL_TYPE_TIME</span>,
-            <span class="ident">MysqlType</span>::<span class="ident">Date</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MYSQL_TYPE_DATE</span>,
-            <span class="ident">MysqlType</span>::<span class="ident">DateTime</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MYSQL_TYPE_DATETIME</span>,
-            <span class="ident">MysqlType</span>::<span class="ident">Timestamp</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MYSQL_TYPE_TIMESTAMP</span>,
-            <span class="ident">MysqlType</span>::<span class="ident">String</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MYSQL_TYPE_STRING</span>,
-            <span class="ident">MysqlType</span>::<span class="ident">Blob</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MYSQL_TYPE_BLOB</span>,
-            <span class="ident">MysqlType</span>::<span class="ident">Numeric</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MYSQL_TYPE_NEWDECIMAL</span>,
-            <span class="ident">MysqlType</span>::<span class="ident">Bit</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MYSQL_TYPE_BIT</span>,
+            <span class="ident">MysqlType</span>::<span class="ident">Tiny</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_TINY</span>,
+            <span class="ident">MysqlType</span>::<span class="ident">Short</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_SHORT</span>,
+            <span class="ident">MysqlType</span>::<span class="ident">Long</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_LONG</span>,
+            <span class="ident">MysqlType</span>::<span class="ident">LongLong</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_LONGLONG</span>,
+            <span class="ident">MysqlType</span>::<span class="ident">Float</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_FLOAT</span>,
+            <span class="ident">MysqlType</span>::<span class="ident">Double</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_DOUBLE</span>,
+            <span class="ident">MysqlType</span>::<span class="ident">Time</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_TIME</span>,
+            <span class="ident">MysqlType</span>::<span class="ident">Date</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_DATE</span>,
+            <span class="ident">MysqlType</span>::<span class="ident">DateTime</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_DATETIME</span>,
+            <span class="ident">MysqlType</span>::<span class="ident">Timestamp</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_TIMESTAMP</span>,
+            <span class="ident">MysqlType</span>::<span class="ident">String</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_STRING</span>,
+            <span class="ident">MysqlType</span>::<span class="ident">Blob</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_BLOB</span>,
+            <span class="ident">MysqlType</span>::<span class="ident">Numeric</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_NEWDECIMAL</span>,
+            <span class="ident">MysqlType</span>::<span class="ident">Bit</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_BIT</span>,
             <span class="ident">MysqlType</span>::<span class="ident">UnsignedTiny</span> <span class="op">=</span><span class="op">&gt;</span> {
                 <span class="ident">flags</span> <span class="op">=</span> <span class="ident">Flags</span>::<span class="ident">UNSIGNED_FLAG</span>;
-                <span class="ident">MYSQL_TYPE_TINY</span>
+                <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_TINY</span>
             }
             <span class="ident">MysqlType</span>::<span class="ident">UnsignedShort</span> <span class="op">=</span><span class="op">&gt;</span> {
                 <span class="ident">flags</span> <span class="op">=</span> <span class="ident">Flags</span>::<span class="ident">UNSIGNED_FLAG</span>;
-                <span class="ident">MYSQL_TYPE_SHORT</span>
+                <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_SHORT</span>
             }
             <span class="ident">MysqlType</span>::<span class="ident">UnsignedLong</span> <span class="op">=</span><span class="op">&gt;</span> {
                 <span class="ident">flags</span> <span class="op">=</span> <span class="ident">Flags</span>::<span class="ident">UNSIGNED_FLAG</span>;
-                <span class="ident">MYSQL_TYPE_LONG</span>
+                <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_LONG</span>
             }
             <span class="ident">MysqlType</span>::<span class="ident">UnsignedLongLong</span> <span class="op">=</span><span class="op">&gt;</span> {
                 <span class="ident">flags</span> <span class="op">=</span> <span class="ident">Flags</span>::<span class="ident">UNSIGNED_FLAG</span>;
-                <span class="ident">MYSQL_TYPE_LONGLONG</span>
+                <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_LONGLONG</span>
             }
             <span class="ident">MysqlType</span>::<span class="ident">Set</span> <span class="op">=</span><span class="op">&gt;</span> {
                 <span class="ident">flags</span> <span class="op">=</span> <span class="ident">Flags</span>::<span class="ident">SET_FLAG</span>;
-                <span class="ident">MYSQL_TYPE_STRING</span>
+                <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_STRING</span>
             }
             <span class="ident">MysqlType</span>::<span class="ident">Enum</span> <span class="op">=</span><span class="op">&gt;</span> {
                 <span class="ident">flags</span> <span class="op">=</span> <span class="ident">Flags</span>::<span class="ident">ENUM_FLAG</span>;
-                <span class="ident">MYSQL_TYPE_STRING</span>
+                <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_STRING</span>
             }
         };
         (<span class="ident">tpe</span>, <span class="ident">flags</span>)
@@ -2034,7 +2049,7 @@
 
 <span class="kw">impl</span> <span class="ident">From</span><span class="op">&lt;</span>(<span class="ident">ffi</span>::<span class="ident">enum_field_types</span>, <span class="ident">Flags</span>)<span class="op">&gt;</span> <span class="kw">for</span> <span class="ident">MysqlType</span> {
     <span class="kw">fn</span> <span class="ident">from</span>((<span class="ident">tpe</span>, <span class="ident">flags</span>): (<span class="ident">ffi</span>::<span class="ident">enum_field_types</span>, <span class="ident">Flags</span>)) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
-        <span class="kw">use</span> <span class="self">self</span>::<span class="ident">ffi</span>::<span class="ident">enum_field_types</span>::<span class="kw-2">*</span>;
+        <span class="kw">use</span> <span class="self">self</span>::<span class="ident">ffi</span>::<span class="ident">enum_field_types</span>;
 
         <span class="kw">let</span> <span class="ident">is_unsigned</span> <span class="op">=</span> <span class="ident">flags</span>.<span class="ident">contains</span>(<span class="ident">Flags</span>::<span class="ident">UNSIGNED_FLAG</span>);
 
@@ -2043,48 +2058,60 @@
         <span class="comment">// https://dev.mysql.com/doc/internals/en/binary-protocol-value.html</span>
         <span class="comment">// https://mariadb.com/kb/en/packet_bindata/</span>
         <span class="kw">match</span> <span class="ident">tpe</span> {
-            <span class="ident">MYSQL_TYPE_TINY</span> <span class="kw">if</span> <span class="ident">is_unsigned</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">UnsignedTiny</span>,
-            <span class="ident">MYSQL_TYPE_YEAR</span> <span class="op">|</span> <span class="ident">MYSQL_TYPE_SHORT</span> <span class="kw">if</span> <span class="ident">is_unsigned</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">UnsignedShort</span>,
-            <span class="ident">MYSQL_TYPE_INT24</span> <span class="op">|</span> <span class="ident">MYSQL_TYPE_LONG</span> <span class="kw">if</span> <span class="ident">is_unsigned</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">UnsignedLong</span>,
-            <span class="ident">MYSQL_TYPE_LONGLONG</span> <span class="kw">if</span> <span class="ident">is_unsigned</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">UnsignedLongLong</span>,
-            <span class="ident">MYSQL_TYPE_TINY</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">Tiny</span>,
-            <span class="ident">MYSQL_TYPE_SHORT</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">Short</span>,
-            <span class="ident">MYSQL_TYPE_INT24</span> <span class="op">|</span> <span class="ident">MYSQL_TYPE_LONG</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">Long</span>,
-            <span class="ident">MYSQL_TYPE_LONGLONG</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">LongLong</span>,
-            <span class="ident">MYSQL_TYPE_FLOAT</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">Float</span>,
-            <span class="ident">MYSQL_TYPE_DOUBLE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">Double</span>,
-            <span class="ident">MYSQL_TYPE_DECIMAL</span> <span class="op">|</span> <span class="ident">MYSQL_TYPE_NEWDECIMAL</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">Numeric</span>,
-            <span class="ident">MYSQL_TYPE_BIT</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">Bit</span>,
+            <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_TINY</span> <span class="kw">if</span> <span class="ident">is_unsigned</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">UnsignedTiny</span>,
+            <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_YEAR</span> <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_SHORT</span>
+                <span class="kw">if</span> <span class="ident">is_unsigned</span> <span class="op">=</span><span class="op">&gt;</span>
+            {
+                <span class="ident">MysqlType</span>::<span class="ident">UnsignedShort</span>
+            }
+            <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_INT24</span> <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_LONG</span>
+                <span class="kw">if</span> <span class="ident">is_unsigned</span> <span class="op">=</span><span class="op">&gt;</span>
+            {
+                <span class="ident">MysqlType</span>::<span class="ident">UnsignedLong</span>
+            }
+            <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_LONGLONG</span> <span class="kw">if</span> <span class="ident">is_unsigned</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">UnsignedLongLong</span>,
+            <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_TINY</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">Tiny</span>,
+            <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_SHORT</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">Short</span>,
+            <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_INT24</span> <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_LONG</span> <span class="op">=</span><span class="op">&gt;</span> {
+                <span class="ident">MysqlType</span>::<span class="ident">Long</span>
+            }
+            <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_LONGLONG</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">LongLong</span>,
+            <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_FLOAT</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">Float</span>,
+            <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_DOUBLE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">Double</span>,
+            <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_DECIMAL</span> <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_NEWDECIMAL</span> <span class="op">=</span><span class="op">&gt;</span> {
+                <span class="ident">MysqlType</span>::<span class="ident">Numeric</span>
+            }
+            <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_BIT</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">Bit</span>,
 
-            <span class="ident">MYSQL_TYPE_TIME</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">Time</span>,
-            <span class="ident">MYSQL_TYPE_DATE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">Date</span>,
-            <span class="ident">MYSQL_TYPE_DATETIME</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">DateTime</span>,
-            <span class="ident">MYSQL_TYPE_TIMESTAMP</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">Timestamp</span>,
+            <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_TIME</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">Time</span>,
+            <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_DATE</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">Date</span>,
+            <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_DATETIME</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">DateTime</span>,
+            <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_TIMESTAMP</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">Timestamp</span>,
             <span class="comment">// Treat json as string because even mysql 8.0</span>
             <span class="comment">// throws errors sometimes if we use json for json</span>
-            <span class="ident">MYSQL_TYPE_JSON</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">String</span>,
+            <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_JSON</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">String</span>,
 
             <span class="comment">// The documentation states that</span>
             <span class="comment">// MYSQL_TYPE_STRING is used for enums and sets</span>
             <span class="comment">// but experimentation has shown that</span>
             <span class="comment">// just any string like type works, so</span>
             <span class="comment">// better be safe here</span>
-            <span class="ident">MYSQL_TYPE_BLOB</span>
-            <span class="op">|</span> <span class="ident">MYSQL_TYPE_TINY_BLOB</span>
-            <span class="op">|</span> <span class="ident">MYSQL_TYPE_MEDIUM_BLOB</span>
-            <span class="op">|</span> <span class="ident">MYSQL_TYPE_LONG_BLOB</span>
-            <span class="op">|</span> <span class="ident">MYSQL_TYPE_VAR_STRING</span>
-            <span class="op">|</span> <span class="ident">MYSQL_TYPE_STRING</span>
+            <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_BLOB</span>
+            <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_TINY_BLOB</span>
+            <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_MEDIUM_BLOB</span>
+            <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_LONG_BLOB</span>
+            <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_VAR_STRING</span>
+            <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_STRING</span>
                 <span class="kw">if</span> <span class="ident">flags</span>.<span class="ident">contains</span>(<span class="ident">Flags</span>::<span class="ident">ENUM_FLAG</span>) <span class="op">=</span><span class="op">&gt;</span>
             {
                 <span class="ident">MysqlType</span>::<span class="ident">Enum</span>
             }
-            <span class="ident">MYSQL_TYPE_BLOB</span>
-            <span class="op">|</span> <span class="ident">MYSQL_TYPE_TINY_BLOB</span>
-            <span class="op">|</span> <span class="ident">MYSQL_TYPE_MEDIUM_BLOB</span>
-            <span class="op">|</span> <span class="ident">MYSQL_TYPE_LONG_BLOB</span>
-            <span class="op">|</span> <span class="ident">MYSQL_TYPE_VAR_STRING</span>
-            <span class="op">|</span> <span class="ident">MYSQL_TYPE_STRING</span>
+            <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_BLOB</span>
+            <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_TINY_BLOB</span>
+            <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_MEDIUM_BLOB</span>
+            <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_LONG_BLOB</span>
+            <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_VAR_STRING</span>
+            <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_STRING</span>
                 <span class="kw">if</span> <span class="ident">flags</span>.<span class="ident">contains</span>(<span class="ident">Flags</span>::<span class="ident">SET_FLAG</span>) <span class="op">=</span><span class="op">&gt;</span>
             {
                 <span class="ident">MysqlType</span>::<span class="ident">Set</span>
@@ -2094,33 +2121,33 @@
             <span class="comment">// also &quot;strings&quot; can contain binary data</span>
             <span class="comment">// but all only if the binary flag is set</span>
             <span class="comment">// (see the check_all_the_types test case)</span>
-            <span class="ident">MYSQL_TYPE_BLOB</span>
-            <span class="op">|</span> <span class="ident">MYSQL_TYPE_TINY_BLOB</span>
-            <span class="op">|</span> <span class="ident">MYSQL_TYPE_MEDIUM_BLOB</span>
-            <span class="op">|</span> <span class="ident">MYSQL_TYPE_LONG_BLOB</span>
-            <span class="op">|</span> <span class="ident">MYSQL_TYPE_VAR_STRING</span>
-            <span class="op">|</span> <span class="ident">MYSQL_TYPE_STRING</span>
+            <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_BLOB</span>
+            <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_TINY_BLOB</span>
+            <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_MEDIUM_BLOB</span>
+            <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_LONG_BLOB</span>
+            <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_VAR_STRING</span>
+            <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_STRING</span>
                 <span class="kw">if</span> <span class="ident">flags</span>.<span class="ident">contains</span>(<span class="ident">Flags</span>::<span class="ident">BINARY_FLAG</span>) <span class="op">=</span><span class="op">&gt;</span>
             {
                 <span class="ident">MysqlType</span>::<span class="ident">Blob</span>
             }
 
             <span class="comment">// If the binary flag is not set consider everything as string</span>
-            <span class="ident">MYSQL_TYPE_BLOB</span>
-            <span class="op">|</span> <span class="ident">MYSQL_TYPE_TINY_BLOB</span>
-            <span class="op">|</span> <span class="ident">MYSQL_TYPE_MEDIUM_BLOB</span>
-            <span class="op">|</span> <span class="ident">MYSQL_TYPE_LONG_BLOB</span>
-            <span class="op">|</span> <span class="ident">MYSQL_TYPE_VAR_STRING</span>
-            <span class="op">|</span> <span class="ident">MYSQL_TYPE_STRING</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">String</span>,
+            <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_BLOB</span>
+            <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_TINY_BLOB</span>
+            <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_MEDIUM_BLOB</span>
+            <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_LONG_BLOB</span>
+            <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_VAR_STRING</span>
+            <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_STRING</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">MysqlType</span>::<span class="ident">String</span>,
 
             <span class="comment">// unsigned seems to be set for year in any case</span>
-            <span class="ident">MYSQL_TYPE_YEAR</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(
+            <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_YEAR</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(
                 <span class="string">&quot;The year type should have set the unsigned flag. If you ever \
                  see this error message, something has gone very wrong. Please \
                  open an issue at the diesel githup repo in this case&quot;</span>
             ),
             <span class="comment">// Null value</span>
-            <span class="ident">MYSQL_TYPE_NULL</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(
+            <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_NULL</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(
                 <span class="string">&quot;We ensure at the call side that we do not hit this type here. \
                  If you ever see this error, something has gone very wrong. \
                  Please open an issue at the diesel github repo in this case&quot;</span>
@@ -2128,7 +2155,10 @@
             <span class="comment">// Those exist in libmysqlclient</span>
             <span class="comment">// but are just not supported</span>
             <span class="comment">//</span>
-            <span class="ident">MYSQL_TYPE_VARCHAR</span> <span class="op">|</span> <span class="ident">MYSQL_TYPE_ENUM</span> <span class="op">|</span> <span class="ident">MYSQL_TYPE_SET</span> <span class="op">|</span> <span class="ident">MYSQL_TYPE_GEOMETRY</span> <span class="op">=</span><span class="op">&gt;</span> {
+            <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_VARCHAR</span>
+            <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_ENUM</span>
+            <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_SET</span>
+            <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_GEOMETRY</span> <span class="op">=</span><span class="op">&gt;</span> {
                 <span class="macro">unimplemented</span><span class="macro">!</span>(
                     <span class="string">&quot;Hit a type that should be unsupported in libmysqlclient. If \
                      you ever see this error, they probably have added support for \
@@ -2137,10 +2167,10 @@
                 )
             }
 
-            <span class="ident">MYSQL_TYPE_NEWDATE</span>
-            <span class="op">|</span> <span class="ident">MYSQL_TYPE_TIME2</span>
-            <span class="op">|</span> <span class="ident">MYSQL_TYPE_DATETIME2</span>
-            <span class="op">|</span> <span class="ident">MYSQL_TYPE_TIMESTAMP2</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(
+            <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_NEWDATE</span>
+            <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_TIME2</span>
+            <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_DATETIME2</span>
+            <span class="op">|</span> <span class="ident">enum_field_types</span>::<span class="ident">MYSQL_TYPE_TIMESTAMP2</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">unreachable</span><span class="macro">!</span>(
                 <span class="string">&quot;The mysql documentation states that this types are \
                  only used on server side, so if you see this error \
                  something has gone wrong. Please open a issue at \

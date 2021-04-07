@@ -105,20 +105,18 @@
 <span id="102">102</span>
 <span id="103">103</span>
 <span id="104">104</span>
-<span id="105">105</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// Built-in Lints</span>
 <span class="attribute">#![<span class="ident">deny</span>(<span class="ident">warnings</span>, <span class="ident">missing_debug_implementations</span>, <span class="ident">missing_copy_implementations</span>)]</span>
 <span class="comment">// Clippy lints</span>
 <span class="attribute">#![<span class="ident">allow</span>(
-    <span class="ident">clippy</span>::<span class="ident">option_map_unwrap_or_else</span>,
-    <span class="ident">clippy</span>::<span class="ident">option_map_unwrap_or</span>,
+    <span class="ident">clippy</span>::<span class="ident">map_unwrap_or</span>,
     <span class="ident">clippy</span>::<span class="ident">match_same_arms</span>,
     <span class="ident">clippy</span>::<span class="ident">type_complexity</span>,
     <span class="ident">clippy</span>::<span class="ident">needless_doctest_main</span>
 )]</span>
 <span class="attribute">#![<span class="ident">warn</span>(
-    <span class="ident">clippy</span>::<span class="ident">option_unwrap_used</span>,
+    <span class="ident">clippy</span>::<span class="ident">unwrap_used</span>,
     <span class="ident">clippy</span>::<span class="ident">print_stdout</span>,
     <span class="ident">clippy</span>::<span class="ident">wrong_pub_self_convention</span>,
     <span class="ident">clippy</span>::<span class="ident">mut_mut</span>,
@@ -210,7 +208,7 @@
     <span class="ident">embed_migrations</span>::<span class="ident">expand</span>(<span class="ident">input</span>.<span class="ident">to_string</span>())
         .<span class="ident">to_string</span>()
         .<span class="ident">parse</span>()
-        .<span class="ident">unwrap</span>()
+        .<span class="ident">expect</span>(<span class="string">&quot;Failed create embedded migrations instance&quot;</span>)
 }
 </pre></div>
 </section><section id="search" class="content hidden"></section><section class="footer"></section><div id="rustdoc-vars" data-root-path="../../" data-current-crate="migrations_macros"></div>

@@ -112,21 +112,17 @@
 <span id="109">109</span>
 <span id="110">110</span>
 <span id="111">111</span>
-<span id="112">112</span>
-<span id="113">113</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="comment">// Built-in Lints</span>
 <span class="attribute">#![<span class="ident">deny</span>(<span class="ident">warnings</span>, <span class="ident">missing_debug_implementations</span>, <span class="ident">missing_copy_implementations</span>)]</span>
 <span class="comment">// Clippy lints</span>
 <span class="attribute">#![<span class="ident">allow</span>(
-    <span class="ident">clippy</span>::<span class="ident">option_map_unwrap_or_else</span>,
-    <span class="ident">clippy</span>::<span class="ident">option_map_unwrap_or</span>,
+    <span class="ident">clippy</span>::<span class="ident">map_unwrap_or</span>,
     <span class="ident">clippy</span>::<span class="ident">match_same_arms</span>,
     <span class="ident">clippy</span>::<span class="ident">type_complexity</span>
 )]</span>
 <span class="attribute">#![<span class="ident">warn</span>(
-    <span class="ident">clippy</span>::<span class="ident">option_unwrap_used</span>,
-    <span class="ident">clippy</span>::<span class="ident">result_unwrap_used</span>,
+    <span class="ident">clippy</span>::<span class="ident">unwrap_used</span>,
     <span class="ident">clippy</span>::<span class="ident">print_stdout</span>,
     <span class="ident">clippy</span>::<span class="ident">wrong_pub_self_convention</span>,
     <span class="ident">clippy</span>::<span class="ident">mut_mut</span>,

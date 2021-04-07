@@ -408,7 +408,7 @@
                 <span class="comment">// transaction is aborted or we&#39;ve done a rollback</span>
                 <span class="comment">// To mirror the behaviour above we attempt to rollback</span>
                 <span class="comment">// to the last savepoint if we hit such a case</span>
-                <span class="prelude-val">Err</span>(<span class="ident">Error</span>::<span class="ident">DatabaseError</span>(<span class="ident">DatabaseErrorKind</span>::<span class="ident">__Unknown</span>, <span class="ident">msg</span>))
+                <span class="prelude-val">Err</span>(<span class="ident">Error</span>::<span class="ident">DatabaseError</span>(<span class="ident">DatabaseErrorKind</span>::<span class="ident">Unknown</span>, <span class="ident">msg</span>))
                     <span class="kw">if</span> <span class="ident">msg</span>.<span class="ident">message</span>().<span class="ident">starts_with</span>(<span class="string">&quot;current transaction is aborted&quot;</span>) <span class="op">=</span><span class="op">&gt;</span>
                 {
                     <span class="self">self</span>.<span class="ident">change_transaction_depth</span>(
@@ -418,7 +418,7 @@
                             <span class="ident">transaction_depth</span> <span class="op">-</span> <span class="number">1</span>
                         )),
                     )<span class="question-mark">?</span>;
-                    <span class="prelude-val">Err</span>(<span class="ident">Error</span>::<span class="ident">DatabaseError</span>(<span class="ident">DatabaseErrorKind</span>::<span class="ident">__Unknown</span>, <span class="ident">msg</span>))
+                    <span class="prelude-val">Err</span>(<span class="ident">Error</span>::<span class="ident">DatabaseError</span>(<span class="ident">DatabaseErrorKind</span>::<span class="ident">Unknown</span>, <span class="ident">msg</span>))
                 }
                 <span class="prelude-val">Err</span>(<span class="ident">e</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="macro">panic</span><span class="macro">!</span>(<span class="string">&quot;{}&quot;</span>, <span class="ident">e</span>),
             }

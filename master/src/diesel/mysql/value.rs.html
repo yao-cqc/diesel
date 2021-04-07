@@ -102,6 +102,11 @@
 <span id="99"> 99</span>
 <span id="100">100</span>
 <span id="101">101</span>
+<span id="102">102</span>
+<span id="103">103</span>
+<span id="104">104</span>
+<span id="105">105</span>
+<span id="106">106</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="kw">use</span> <span class="kw">super</span>::<span class="ident">MysqlType</span>;
 <span class="kw">use</span> <span class="kw">crate</span>::<span class="ident">deserialize</span>;
@@ -154,24 +159,29 @@
     <span class="doccomment">/// Returns the numeric representation of this value, based on the type code.</span>
     <span class="doccomment">/// Returns an error if the type code is not numeric.</span>
     <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">numeric_value</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">deserialize</span>::<span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">NumericRepresentation</span><span class="op">&gt;</span> {
-        <span class="kw">use</span> <span class="self">self</span>::<span class="ident">NumericRepresentation</span>::<span class="kw-2">*</span>;
         <span class="kw">use</span> <span class="ident">std</span>::<span class="ident">convert</span>::<span class="ident">TryInto</span>;
 
         <span class="prelude-val">Ok</span>(<span class="kw">match</span> <span class="self">self</span>.<span class="ident">tpe</span> {
-            <span class="ident">MysqlType</span>::<span class="ident">UnsignedTiny</span> <span class="op">|</span> <span class="ident">MysqlType</span>::<span class="ident">Tiny</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">Tiny</span>(<span class="self">self</span>.<span class="ident">raw</span>[<span class="number">0</span>] <span class="kw">as</span> <span class="ident">i8</span>),
+            <span class="ident">MysqlType</span>::<span class="ident">UnsignedTiny</span> <span class="op">|</span> <span class="ident">MysqlType</span>::<span class="ident">Tiny</span> <span class="op">=</span><span class="op">&gt;</span> {
+                <span class="ident">NumericRepresentation</span>::<span class="ident">Tiny</span>(<span class="self">self</span>.<span class="ident">raw</span>[<span class="number">0</span>] <span class="kw">as</span> <span class="ident">i8</span>)
+            }
             <span class="ident">MysqlType</span>::<span class="ident">UnsignedShort</span> <span class="op">|</span> <span class="ident">MysqlType</span>::<span class="ident">Short</span> <span class="op">=</span><span class="op">&gt;</span> {
-                <span class="ident">Small</span>(<span class="ident">i16</span>::<span class="ident">from_ne_bytes</span>(<span class="self">self</span>.<span class="ident">raw</span>.<span class="ident">try_into</span>()<span class="question-mark">?</span>))
+                <span class="ident">NumericRepresentation</span>::<span class="ident">Small</span>(<span class="ident">i16</span>::<span class="ident">from_ne_bytes</span>(<span class="self">self</span>.<span class="ident">raw</span>.<span class="ident">try_into</span>()<span class="question-mark">?</span>))
             }
             <span class="ident">MysqlType</span>::<span class="ident">UnsignedLong</span> <span class="op">|</span> <span class="ident">MysqlType</span>::<span class="ident">Long</span> <span class="op">=</span><span class="op">&gt;</span> {
-                <span class="ident">Medium</span>(<span class="ident">i32</span>::<span class="ident">from_ne_bytes</span>(<span class="self">self</span>.<span class="ident">raw</span>.<span class="ident">try_into</span>()<span class="question-mark">?</span>))
+                <span class="ident">NumericRepresentation</span>::<span class="ident">Medium</span>(<span class="ident">i32</span>::<span class="ident">from_ne_bytes</span>(<span class="self">self</span>.<span class="ident">raw</span>.<span class="ident">try_into</span>()<span class="question-mark">?</span>))
             }
             <span class="ident">MysqlType</span>::<span class="ident">UnsignedLongLong</span> <span class="op">|</span> <span class="ident">MysqlType</span>::<span class="ident">LongLong</span> <span class="op">=</span><span class="op">&gt;</span> {
-                <span class="ident">Big</span>(<span class="ident">i64</span>::<span class="ident">from_ne_bytes</span>(<span class="self">self</span>.<span class="ident">raw</span>.<span class="ident">try_into</span>()<span class="question-mark">?</span>))
+                <span class="ident">NumericRepresentation</span>::<span class="ident">Big</span>(<span class="ident">i64</span>::<span class="ident">from_ne_bytes</span>(<span class="self">self</span>.<span class="ident">raw</span>.<span class="ident">try_into</span>()<span class="question-mark">?</span>))
             }
-            <span class="ident">MysqlType</span>::<span class="ident">Float</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">Float</span>(<span class="ident">f32</span>::<span class="ident">from_ne_bytes</span>(<span class="self">self</span>.<span class="ident">raw</span>.<span class="ident">try_into</span>()<span class="question-mark">?</span>)),
-            <span class="ident">MysqlType</span>::<span class="ident">Double</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">Double</span>(<span class="ident">f64</span>::<span class="ident">from_ne_bytes</span>(<span class="self">self</span>.<span class="ident">raw</span>.<span class="ident">try_into</span>()<span class="question-mark">?</span>)),
+            <span class="ident">MysqlType</span>::<span class="ident">Float</span> <span class="op">=</span><span class="op">&gt;</span> {
+                <span class="ident">NumericRepresentation</span>::<span class="ident">Float</span>(<span class="ident">f32</span>::<span class="ident">from_ne_bytes</span>(<span class="self">self</span>.<span class="ident">raw</span>.<span class="ident">try_into</span>()<span class="question-mark">?</span>))
+            }
+            <span class="ident">MysqlType</span>::<span class="ident">Double</span> <span class="op">=</span><span class="op">&gt;</span> {
+                <span class="ident">NumericRepresentation</span>::<span class="ident">Double</span>(<span class="ident">f64</span>::<span class="ident">from_ne_bytes</span>(<span class="self">self</span>.<span class="ident">raw</span>.<span class="ident">try_into</span>()<span class="question-mark">?</span>))
+            }
 
-            <span class="ident">MysqlType</span>::<span class="ident">Numeric</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">Decimal</span>(<span class="self">self</span>.<span class="ident">raw</span>),
+            <span class="ident">MysqlType</span>::<span class="ident">Numeric</span> <span class="op">=</span><span class="op">&gt;</span> <span class="ident">NumericRepresentation</span>::<span class="ident">Decimal</span>(<span class="self">self</span>.<span class="ident">raw</span>),
             <span class="kw">_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="kw">return</span> <span class="prelude-val">Err</span>(<span class="self">self</span>.<span class="ident">invalid_type_code</span>(<span class="string">&quot;number&quot;</span>)),
         })
     }

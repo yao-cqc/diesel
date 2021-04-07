@@ -397,7 +397,7 @@
 <span class="comment">// Extremely curious why this triggers on a nearly branchless function</span>
 <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">cognitive_complexity</span>)]</span>
 <span class="comment">// for loop comes from `quote!`</span>
-<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">for_loop_over_option</span>)]</span>
+<span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">for_loops_over_fallibles</span>)]</span>
 <span class="comment">// https://github.com/rust-lang/rust-clippy/issues/3768</span>
 <span class="attribute">#[<span class="ident">allow</span>(<span class="ident">clippy</span>::<span class="ident">useless_let_if_seq</span>)]</span>
 <span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">expand</span>(<span class="ident">input</span>: <span class="ident">SqlFunctionDecl</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">TokenStream</span>, <span class="ident">Diagnostic</span><span class="op">&gt;</span> {

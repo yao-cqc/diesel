@@ -277,9 +277,9 @@
 <span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">windows</span>)]</span>
 <span class="kw">const</span> <span class="ident">AF_INET</span>: <span class="ident">u8</span> <span class="op">=</span> <span class="number">2</span>;
 <span class="comment">// Maybe not used, but defining to follow Rust&#39;s libstd/net/sys</span>
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">redox</span>)]</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">target_os</span> <span class="op">=</span> <span class="string">&quot;redox&quot;</span>)]</span>
 <span class="kw">const</span> <span class="ident">AF_INET</span>: <span class="ident">u8</span> <span class="op">=</span> <span class="number">1</span>;
-<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">any</span>(<span class="ident">windows</span>, <span class="ident">redox</span>)))]</span>
+<span class="attribute">#[<span class="ident">cfg</span>(<span class="ident">not</span>(<span class="ident">any</span>(<span class="ident">windows</span>, <span class="ident">target_os</span> <span class="op">=</span> <span class="string">&quot;redox&quot;</span>)))]</span>
 <span class="kw">const</span> <span class="ident">AF_INET</span>: <span class="ident">u8</span> <span class="op">=</span> <span class="ident">libc</span>::<span class="ident">AF_INET</span> <span class="kw">as</span> <span class="ident">u8</span>;
 
 <span class="kw">const</span> <span class="ident">PGSQL_AF_INET</span>: <span class="ident">u8</span> <span class="op">=</span> <span class="ident">AF_INET</span>;
