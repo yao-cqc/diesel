@@ -112,6 +112,7 @@
 <span id="109">109</span>
 <span id="110">110</span>
 <span id="111">111</span>
+<span id="112">112</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! Error types that represent migration errors.</span>
 <span class="doccomment">//! These are split into multiple segments, depending on</span>
@@ -158,9 +159,10 @@
                  &lt;timestamp&gt;_&lt;name_of_migration&gt;, and it should only contain up.sql and down.sql.&quot;</span>
             ),
             <span class="ident">MigrationError</span>::<span class="ident">IoError</span>(<span class="kw-2">ref</span> <span class="ident">error</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="macro">write</span><span class="macro">!</span>(<span class="ident">f</span>, <span class="string">&quot;{}&quot;</span>, <span class="ident">error</span>),
-            <span class="ident">MigrationError</span>::<span class="ident">UnknownMigrationVersion</span>(<span class="kw">_</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="macro">write</span><span class="macro">!</span>(
+            <span class="ident">MigrationError</span>::<span class="ident">UnknownMigrationVersion</span>(<span class="kw-2">ref</span> <span class="ident">version</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="macro">write</span><span class="macro">!</span>(
                 <span class="ident">f</span>,
-                <span class="string">&quot;Unable to find migration version to revert in the migrations directory.&quot;</span>
+                <span class="string">&quot;Unable to find migration version {} to revert in the migrations directory.&quot;</span>,
+                <span class="ident">version</span>
             ),
             <span class="ident">MigrationError</span>::<span class="ident">NoMigrationRun</span> <span class="op">=</span><span class="op">&gt;</span> <span class="macro">write</span><span class="macro">!</span>(
                 <span class="ident">f</span>,
