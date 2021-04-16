@@ -224,8 +224,8 @@
     <span class="doccomment">/// how many months are in &quot;40 days&quot; without knowing a precise date.</span>
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">microseconds</span>: <span class="ident">i64</span>, <span class="ident">days</span>: <span class="ident">i32</span>, <span class="ident">months</span>: <span class="ident">i32</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
         <span class="ident">PgInterval</span> {
-            <span class="ident">days</span>,
             <span class="ident">microseconds</span>,
+            <span class="ident">days</span>,
             <span class="ident">months</span>,
         }
     }

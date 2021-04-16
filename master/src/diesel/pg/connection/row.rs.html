@@ -89,7 +89,7 @@
 
 <span class="kw">impl</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> <span class="ident">PgRow</span><span class="op">&lt;</span><span class="lifetime">&#39;a</span><span class="op">&gt;</span> {
     <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">new</span>(<span class="ident">db_result</span>: <span class="kw-2">&amp;</span><span class="lifetime">&#39;a</span> <span class="ident">PgResult</span>, <span class="ident">row_idx</span>: <span class="ident">usize</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="self">Self</span> {
-        <span class="ident">PgRow</span> { <span class="ident">row_idx</span>, <span class="ident">db_result</span> }
+        <span class="ident">PgRow</span> { <span class="ident">db_result</span>, <span class="ident">row_idx</span> }
     }
 }
 
