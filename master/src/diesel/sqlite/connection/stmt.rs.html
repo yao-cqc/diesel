@@ -233,6 +233,9 @@
 <span id="230">230</span>
 <span id="231">231</span>
 <span id="232">232</span>
+<span id="233">233</span>
+<span id="234">234</span>
+<span id="235">235</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">libsqlite3_sys</span> <span class="kw">as</span> <span class="ident">ffi</span>;
 
@@ -297,7 +300,10 @@
     }
 }
 
-<span class="kw">fn</span> <span class="ident">ensure_sqlite_ok</span>(<span class="ident">code</span>: <span class="ident">libc</span>::<span class="ident">c_int</span>, <span class="ident">raw_connection</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi</span>::<span class="ident">sqlite3</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">QueryResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
+<span class="kw">pub</span>(<span class="kw">super</span>) <span class="kw">fn</span> <span class="ident">ensure_sqlite_ok</span>(
+    <span class="ident">code</span>: <span class="ident">libc</span>::<span class="ident">c_int</span>,
+    <span class="ident">raw_connection</span>: <span class="kw-2">*</span><span class="kw-2">mut</span> <span class="ident">ffi</span>::<span class="ident">sqlite3</span>,
+) <span class="op">-</span><span class="op">&gt;</span> <span class="ident">QueryResult</span><span class="op">&lt;</span>()<span class="op">&gt;</span> {
     <span class="kw">if</span> <span class="ident">code</span> <span class="op">=</span><span class="op">=</span> <span class="ident">ffi</span>::<span class="ident">SQLITE_OK</span> {
         <span class="prelude-val">Ok</span>(())
     } <span class="kw">else</span> {
