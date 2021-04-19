@@ -273,6 +273,31 @@
 <span id="270">270</span>
 <span id="271">271</span>
 <span id="272">272</span>
+<span id="273">273</span>
+<span id="274">274</span>
+<span id="275">275</span>
+<span id="276">276</span>
+<span id="277">277</span>
+<span id="278">278</span>
+<span id="279">279</span>
+<span id="280">280</span>
+<span id="281">281</span>
+<span id="282">282</span>
+<span id="283">283</span>
+<span id="284">284</span>
+<span id="285">285</span>
+<span id="286">286</span>
+<span id="287">287</span>
+<span id="288">288</span>
+<span id="289">289</span>
+<span id="290">290</span>
+<span id="291">291</span>
+<span id="292">292</span>
+<span id="293">293</span>
+<span id="294">294</span>
+<span id="295">295</span>
+<span id="296">296</span>
+<span id="297">297</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="kw">use</span> <span class="ident">proc_macro2</span>::{<span class="ident">Ident</span>, <span class="ident">Span</span>};
 <span class="kw">use</span> <span class="ident">syn</span>;
@@ -374,6 +399,31 @@
                 <span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">str_value</span>()<span class="question-mark">?</span>,
                 <span class="self">self</span>.<span class="ident">value_span</span>().<span class="ident">resolved_at</span>(<span class="ident">Span</span>::<span class="ident">call_site</span>()),
             )),
+        }
+    }
+
+    <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">path_value</span>(<span class="kw-2">&amp;</span><span class="self">self</span>) <span class="op">-</span><span class="op">&gt;</span> <span class="prelude-ty">Result</span><span class="op">&lt;</span><span class="ident">syn</span>::<span class="ident">Path</span>, <span class="ident">Diagnostic</span><span class="op">&gt;</span> {
+        <span class="kw">let</span> <span class="ident">maybe_attr</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">nested</span>().<span class="ident">ok</span>().<span class="ident">and_then</span>(<span class="op">|</span><span class="kw-2">mut</span> <span class="ident">n</span><span class="op">|</span> <span class="ident">n</span>.<span class="ident">next</span>());
+        <span class="kw">let</span> <span class="ident">maybe_path</span> <span class="op">=</span> <span class="ident">maybe_attr</span>.<span class="ident">as_ref</span>().<span class="ident">and_then</span>(<span class="op">|</span><span class="ident">m</span><span class="op">|</span> <span class="ident">m</span>.<span class="ident">path</span>().<span class="ident">ok</span>());
+        <span class="kw">match</span> <span class="ident">maybe_path</span> {
+            <span class="prelude-val">Some</span>(<span class="ident">path</span>) <span class="op">=</span><span class="op">&gt;</span> {
+                <span class="self">self</span>.<span class="ident">span</span>()
+                    .<span class="ident">warning</span>(<span class="macro">format</span><span class="macro">!</span>(
+                        <span class="string">&quot;The form `{0}(value)` is deprecated. Use `{0} = \&quot;value\&quot;` instead&quot;</span>,
+                        <span class="ident">path_to_string</span>(<span class="kw-2">&amp;</span><span class="self">self</span>.<span class="ident">name</span>()),
+                    ))
+                    .<span class="ident">emit</span>();
+                <span class="prelude-val">Ok</span>(<span class="ident">path</span>)
+            }
+            <span class="prelude-val">None</span> <span class="op">=</span><span class="op">&gt;</span> {
+                <span class="kw">let</span> <span class="ident">lit</span> <span class="op">=</span> <span class="self">self</span>.<span class="ident">lit_str_value</span>()<span class="question-mark">?</span>;
+                <span class="kw">match</span> <span class="ident">lit</span>.<span class="ident">parse</span>() {
+                    <span class="prelude-val">Ok</span>(<span class="ident">path</span>) <span class="op">=</span><span class="op">&gt;</span> <span class="prelude-val">Ok</span>(<span class="ident">path</span>),
+                    <span class="kw">_</span> <span class="op">=</span><span class="op">&gt;</span> <span class="prelude-val">Err</span>(<span class="ident">lit</span>
+                        .<span class="ident">span</span>()
+                        .<span class="ident">error</span>(<span class="macro">format</span><span class="macro">!</span>(<span class="string">&quot;`{}` is not a valid path&quot;</span>, <span class="ident">lit</span>.<span class="ident">value</span>()))),
+                }
+            }
         }
     }
 
