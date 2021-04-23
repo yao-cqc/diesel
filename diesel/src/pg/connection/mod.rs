@@ -137,7 +137,7 @@ impl PgConnection {
     }
 
     #[allow(clippy::type_complexity)]
-    fn prepare_query<T: QueryFragment<Pg> + QueryId>(
+    pub fn prepare_query<T: QueryFragment<Pg> + QueryId>(
         &self,
         source: &T,
     ) -> QueryResult<(MaybeCached<Statement>, Vec<Option<Vec<u8>>>)> {
